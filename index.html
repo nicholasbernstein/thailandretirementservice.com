@@ -131,11 +131,8 @@
     .hero-right { position: relative; overflow: hidden; background: var(--teak); }
     .hero-photo {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg, #8B6350 0%, #5C3D2E 45%, #3A2518 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
     }
-    .photo-hint { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,239,228,0.35); }
-    .photo-icon { font-size: 36px; opacity: 0.2; }
     .hero-card {
       position: absolute; bottom: 44px; left: 32px; right: 32px;
       background: rgba(245,239,228,0.97); border-radius: 16px;
@@ -149,12 +146,6 @@
     }
     .card-text h4 { font-family: 'Lora', serif; font-size: 15px; color: var(--teak); margin-bottom: 4px; }
     .card-text p { font-size: 13px; color: var(--teak2); line-height: 1.5; }
-    .card-badge {
-      margin-left: auto; flex-shrink: 0;
-      background: var(--sage3); color: var(--teak);
-      font-size: 11px; font-weight: 700;
-      padding: 5px 12px; border-radius: 100px; white-space: nowrap;
-    }
 
     .section-label {
       font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
@@ -186,9 +177,6 @@
       aspect-ratio: 4/5; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
     }
-    .about-photo-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #7A6050 0%, #5C3D2E 50%, #3A2518 100%); }
-    .about-photo-hint { position: relative; z-index: 1; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,239,228,0.35); }
-    .about-photo-icon { position: relative; z-index: 1; font-size: 32px; opacity: 0.2; }
     .about-text p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
     .about-text p:last-child { margin-bottom: 0; }
     .about-text strong { color: var(--teak); font-weight: 600; }
@@ -222,9 +210,6 @@
     .trip-price-note { font-size: 14px; color: var(--teak2); margin-bottom: 32px; }
     .trip-card h3 { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: var(--teak); margin-bottom: 16px; }
     .trip-card > p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak2); margin-bottom: 28px; }
-    .trip-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
-    .trip-list li { font-size: 15px; color: var(--teak2); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
-    .trip-list li::before { content: '✓'; color: var(--terra); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
     .trip-note {
       font-size: 13px; font-weight: 300; color: var(--teak3);
       font-style: italic; line-height: 1.7;
@@ -234,115 +219,109 @@
     .trip-right p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
     .trip-right strong { color: var(--teak); font-weight: 600; }
 
-    .itinerary { padding: 100px 56px; background: var(--teak); }
-    .itinerary .section-label { color: var(--teak3); }
-    .itinerary .section-title { color: var(--sand); margin-bottom: 56px; }
-    .day {
-      display: grid; grid-template-columns: 80px 1fr;
-      gap: 32px; padding: 36px 0;
-      border-bottom: 1px solid rgba(245,239,228,0.1);
-    }
-    .day:last-child { border-bottom: none; }
-    .day-num {
-      font-family: 'Lora', serif; font-size: 42px; font-weight: 400;
-      color: rgba(245,239,228,0.2); line-height: 1;
-      transition: color 0.2s;
-    }
-    .day:hover .day-num { color: var(--terra2); }
-    .day-content h4 { font-family: 'Lora', serif; font-size: 20px; font-weight: 500; color: var(--sand); margin-bottom: 10px; }
-    .day-content p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak3); }
-
     .cities { padding: 100px 56px; background: var(--sand); }
     .cities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
     .city-card {
-      background: var(--white); border-radius: 20px; padding: 40px 36px;
+      background: var(--white); border-radius: 20px;
       border: 1px solid var(--sand2);
       transition: transform 0.25s, box-shadow 0.25s;
+      overflow: hidden;
     }
     .city-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,61,46,0.1); }
-    .city-icon { font-size: 32px; margin-bottom: 18px; }
+    .city-card-inner { padding: 32px 36px; }
     .city-card h3 { font-family: 'Lora', serif; font-size: 26px; font-weight: 500; color: var(--teak); margin-bottom: 12px; }
     .city-card p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak2); margin-bottom: 20px; }
     .city-facts { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .city-facts li { font-size: 13px; font-weight: 500; color: var(--teak2); display: flex; align-items: center; gap: 8px; }
-    .city-facts li::before { content: '–'; color: var(--terra2); }
+    .city-facts li::before { content: '·'; color: var(--terra); font-size: 18px; line-height: 1; }
 
     .numbers { padding: 100px 56px; background: var(--white); }
     .numbers-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .numbers p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
-    .numbers strong { color: var(--teak); font-weight: 600; }
-    .cost-table { width: 100%; border-collapse: collapse; }
-    .cost-table th { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 16px; text-align: left; }
-    .cost-table th:first-child { color: var(--teak2); background: var(--sand); }
-    .cost-table th:nth-child(2) { color: white; background: #A0402A; }
-    .cost-table th:nth-child(3) { color: white; background: var(--sage); }
-    .cost-table td { font-size: 14px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
-    .cost-table tr:nth-child(even) td { background: rgba(245,239,228,0.5); }
-    .cost-table td:nth-child(2) { color: #A0402A; }
-    .cost-table td:nth-child(3) { color: #3A7A55; }
-    .cost-total td { background: var(--teak) !important; color: var(--sand) !important; font-weight: 700 !important; border: none !important; }
+    .numbers-inner p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+    .numbers-inner p:last-child { margin-bottom: 0; }
+    .numbers-inner strong { color: var(--teak); font-weight: 600; }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .cost-table th {
+      text-align: left; padding: 12px 16px;
+      background: var(--teak); color: var(--sand);
+      font-weight: 600; font-size: 12px; letter-spacing: 0.05em;
+    }
+    .cost-table th:not(:first-child) { text-align: right; }
+    .cost-table td { padding: 11px 16px; border-bottom: 1px solid var(--line); color: var(--teak2); }
+    .cost-table td:not(:first-child) { text-align: right; }
+    .cost-table tr:hover td { background: var(--sand); }
+    .cost-total td { background: var(--sand2) !important; font-weight: 600; color: var(--teak) !important; }
 
-    .cta { padding: 100px 56px; background: var(--sand2); text-align: center; }
-    .cta-inner { max-width: 600px; margin: 0 auto; }
-    .cta .section-label { text-align: center; }
-    .cta .section-title { text-align: center; margin: 0 auto 20px; }
-    .cta p { font-size: 17px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 44px; }
-    .cta-buttons { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .cta { padding: 100px 56px; background: var(--teak); }
+    .cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .cta .section-label { color: var(--teak3); }
+    .cta .section-title { color: var(--sand); margin-bottom: 24px; }
+    .cta > .cta-inner > p { font-size: 17px; font-weight: 300; line-height: 1.85; color: var(--teak3); margin-bottom: 48px; }
+    .cta-buttons { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
     .btn-line {
-      display: inline-flex; align-items: center; gap: 10px;
       background: #06C755; color: white;
       font-size: 15px; font-weight: 600;
       padding: 16px 36px; border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(6,199,85,0.3);
-      transition: background 0.2s, transform 0.15s;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
     }
-    .btn-line:hover { background: #05A847; transform: translateY(-2px); }
-    .cta-note { font-size: 13px; color: var(--teak3); }
+    .btn-line:hover { opacity: 0.9; transform: translateY(-2px); }
+    .cta .btn-ghost { color: var(--teak3); }
+    .cta .btn-ghost:hover { color: var(--sand); }
+    .cta-note { font-size: 13px; color: var(--teak3); line-height: 1.6; }
+    .cta-note a { color: var(--teak3); text-decoration: underline; }
 
-    footer { background: var(--teak); padding: 52px 56px 32px; }
+    footer {
+      background: var(--text); padding: 64px 56px 40px;
+    }
     .footer-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding-bottom: 40px; border-bottom: 1px solid rgba(245,239,228,0.1); margin-bottom: 28px;
+      display: flex; justify-content: space-between; gap: 60px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(245,239,228,0.1);
+      margin-bottom: 32px;
     }
-    .footer-brand { font-family: 'Lora', serif; font-size: 20px; color: var(--sand); font-weight: 500; }
-    .footer-brand p { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 300; color: var(--teak3); margin-top: 8px; max-width: 260px; line-height: 1.6; }
-    .footer-links { display: flex; gap: 56px; }
-    .footer-col h6 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teak3); margin-bottom: 16px; }
+    .footer-brand {
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+      color: var(--sand); max-width: 280px;
+    }
+    .footer-brand p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 300; color: var(--teak3);
+      line-height: 1.7; margin-top: 12px;
+    }
+    .footer-links { display: flex; gap: 60px; }
+    .footer-col h6 {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teak3); margin-bottom: 16px;
+    }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col a { font-size: 14px; font-weight: 300; color: var(--sand2); text-decoration: none; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--terra2); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy { font-size: 13px; color: var(--teak3); }
-    .footer-badge {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(245,239,228,0.07); border: 1px solid rgba(245,239,228,0.12);
-      padding: 7px 16px; border-radius: 100px;
-      font-size: 12px; font-weight: 500; color: var(--teak3);
+    .footer-col ul li a { font-size: 14px; color: rgba(245,239,228,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--sand); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(245,239,228,0.3);
     }
-    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
 
     @media (max-width: 900px) {
-      nav { padding: 18px 24px; }
+      nav { padding: 16px 24px; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 300px; }
-      .hero-left { padding: 48px 24px; }
-      .honest-banner { padding: 40px 24px; flex-direction: column; }
-      .about { padding: 72px 24px; }
+      .hero-right { min-height: 360px; }
+      .hero-left { padding: 60px 24px; }
+      .about { padding: 60px 24px; }
       .about-inner { grid-template-columns: 1fr; gap: 40px; }
-      .free-call { padding: 72px 24px; }
+      .about-photo { aspect-ratio: 16/9; }
+      .free-call { padding: 60px 24px; }
       .free-call-inner { grid-template-columns: 1fr; gap: 40px; }
-      .trip { padding: 72px 24px; }
+      .trip { padding: 60px 24px; }
       .trip-inner { grid-template-columns: 1fr; }
-      .itinerary { padding: 72px 24px; }
-      .day { grid-template-columns: 56px 1fr; gap: 20px; }
-      .cities { padding: 72px 24px; }
+      .honest-banner { padding: 36px 24px; }
+      .cities { padding: 60px 24px; }
       .cities-grid { grid-template-columns: 1fr; }
-      .numbers { padding: 72px 24px; }
-      .numbers-inner { grid-template-columns: 1fr; gap: 48px; }
-      .cta { padding: 72px 24px; }
-      footer { padding: 48px 24px 28px; }
+      .numbers { padding: 60px 24px; }
+      .numbers-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta { padding: 60px 24px; }
+      footer { padding: 48px 24px 32px; }
       .footer-top { flex-direction: column; gap: 36px; }
       .footer-links { gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
@@ -357,7 +336,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#trip">The Scouting Trip</a></li>
       <li><a href="#relocation">Full Relocation</a></li>
-      <li><a href="#cities">Bangkok & Chiang Mai</a></li>
+      <li><a href="#bangkok">Bangkok</a></li>
       <li><a href="#numbers">The Numbers</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Book a Free Call</a>
@@ -377,7 +356,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-photo" style="background: none;">
+      <div class="hero-photo">
         <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=80" alt="Bangkok at dusk" style="width:100%; height:100%; object-fit:cover; object-position: center;"/>
       </div>
       <div class="hero-card">
@@ -390,19 +369,11 @@
     </div>
   </section>
 
-  <div class="honest-banner">
-    <div class="honest-icon">💬</div>
-    <div>
-      <h3>The visa threshold is real. It exists for a reason.</h3>
-      <p>Thailand's retirement visa requires you to be <strong>50 years of age or older</strong>, with either <strong>800,000 THB in a Thai bank account (about $22,000 USD) or roughly $2,200/month in guaranteed income.</strong> If you're under 50, this specific pathway isn't available to you yet. If you're over 50 but the finances aren't quite there, we talk about it honestly on the first call, before anyone books a flight. Coming here without enough money is a problem I've seen play out badly, and I won't set you up for that.</p>
-    </div>
-  </div>
-
   <div class="honest-banner" style="background: var(--teak2); padding-top: 32px; padding-bottom: 32px;">
     <div class="honest-icon">⚖️</div>
     <div>
-      <h3>A note on who is actually allowed to do this.</h3>
-      <p>You will find plenty of Western expats advertising relocation and concierge services in Thailand on social media. Most of them cannot legally work here. Thailand's work permit laws are strict and operating without one is a real risk for them and potentially for you. As a Thai citizen, I operate this business legally, openly, and permanently. I am not going anywhere.</p>
+      <h3>Thailand Retirement Service is owned and operated by a Thai national.</h3>
+      <p>That matters for a few reasons. It means this business operates here permanently and legally. It also means the person handling your move grew up in the West, speaks English as a native language, understands exactly where you're coming from — and has the legal standing to work here that most Western expats do not.</p>
     </div>
   </div>
 
@@ -412,12 +383,11 @@
         <img src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80" alt="Bangkok neighbourhood" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
       </div>
       <div class="about-text">
-        <div class="section-label">Who I Am</div>
-        <h2 class="section-title">Thai by birth. Western by upbringing. Bangkok for nearly 12 years.</h2>
-        <p>I grew up in the west. I've lived in Bangkok for nearly 12 years. I know what's in your head when you land here because it was in my head too.</p>
-        <p>There's a lot involved in actually moving here — visas, housing, healthcare, banking. I help you navigate all of it and connect you with the right people at the right time.</p>
-        <p>Last year I had brain surgery at a Thai private hospital. The year before that I took a close friend in a genuine emergency at a public hospital at 2am and stayed with him through it. Before that I spent four years producing content inside Thai private hospitals for a medical tourism company. I know this healthcare system from angles most people never see.</p>
-        <p><strong>The ability to stand in both cultures is what I bring to this.</strong></p>
+        <div class="section-label">Who This Is</div>
+        <h2 class="section-title">Thai by birth. Western by upbringing. Bangkok for over ten years.</h2>
+        <p>Growing up in the West and living in Bangkok for over a decade means understanding both sides of this move — what people imagine before they arrive and what they actually find when they get here.</p>
+        <p>There is a lot involved in actually relocating: visas, housing, healthcare, banking. Thailand Retirement Service handles the navigation and connects clients with the right people at the right time.</p>
+        <p>The healthcare knowledge runs deep. Brain surgery at a Thai private hospital. A close friend through a genuine emergency at a public hospital at 2am. Four years producing content inside Thai private hospitals for a medical tourism company. This system is understood from angles most people never see.</p>
       </div>
     </div>
   </section>
@@ -427,9 +397,8 @@
       <div class="free-call-text">
         <div class="section-label">Where We Start</div>
         <h2 class="section-title">Thirty minutes. No pitch. Just a straight conversation.</h2>
-        <p>You've probably done a lot of reading. You know the basics. What you don't have is someone who lives here telling you whether it makes sense for <em>you specifically</em>. Your budget, your health, your personality, your life.</p>
-        <p>That's what the first call is. You talk, I listen, then I tell you what I think. Including if I think Thailand is the wrong move. <strong>I'd rather lose a potential client than send someone here who isn't ready.</strong></p>
-        <p>If it does make sense, we talk about next steps. No package pushed at the end. Just a conversation that leaves you with something useful either way.</p>
+        <p>Most people considering this move have done a lot of reading. What they don't have is someone who lives here telling them whether it makes sense for their specific situation — budget, health, personality, life.</p>
+        <p>That's what the first call is. A straight conversation. Including an honest assessment if Thailand isn't the right move. The goal is a useful outcome either way.</p>
       </div>
       <div class="call-box">
         <div class="call-free">Free</div>
@@ -439,7 +408,7 @@
         <ul class="call-list">
           <li>Does your budget actually work?</li>
           <li>Which visa pathway fits your situation?</li>
-          <li>Bangkok or Chiang Mai: which suits you?</li>
+          <li>Is Bangkok right for you?</li>
           <li>What does healthcare look like for someone your age?</li>
           <li>What are the costs nobody puts in the brochure?</li>
           <li>Is this the right move for you right now?</li>
@@ -456,33 +425,31 @@
         <div class="trip-price-note">Five days · Bangkok · Flights and accommodation not included</div>
         <h3>The Bangkok Scouting Trip</h3>
         <p>Most people who visit Thailand for the first time see temples, beaches, and hotel breakfast buffets. This isn't that.</p>
-        <p>Before you arrive, you fill out a short questionnaire. Your budget, your health situation, your priorities, what's keeping you up at night about this move. I build the five days around your answers. Every scout looks roughly similar. No two are exactly alike.</p>
-        <p>By the end of it you've seen a real apartment in a neighborhood that fits you, been through a supermarket, found your medications on a pharmacy shelf, sat in a dental clinic and seen the bill, ridden the transit system, and walked streets you could actually live on. You go home with a written plan: visa pathway, realistic monthly budget, housing approach, timeline.</p>
-        <div class="trip-note">The $1,485 covers my time for all five days, transit, the dental visit, and the written plan. Flights, accommodation, and meals are separate. If you continue to full relocation support, this fee comes off the total.<br/><br/>Not ready for five days? A three-day version is available at $875. Same tailored approach, less ground covered, lighter written summary. Ask about it on the call.</div>
+        <p>Before arrival, clients fill out a short questionnaire — budget, health situation, priorities, what's keeping them up at night about this move. The five days are built around those answers. Every scout covers similar ground. No two are exactly alike.</p>
+        <p>By the end: a real apartment viewed in a neighborhood that fits, a supermarket walked, medications found on a pharmacy shelf with prices, a dental cleaning done and the bill seen, the transit system understood, streets walked that could actually be home. The trip ends with a written plan — visa pathway, realistic monthly budget, housing approach, timeline.</p>
+        <div class="trip-note">The $1,485 covers five full days, transit, the dental visit, a SIM card, and the written plan. Flights, accommodation, and meals are separate. If you continue to full relocation support, this fee comes off the total.<br/><br/>Not ready for five days? A three-day version is available at $875. Same tailored approach, less ground covered, lighter written summary. Ask about it on the call.</div>
         <br/>
         <a href="#contact" class="btn-primary" style="margin-top: 8px;">Start With a Free Call</a>
       </div>
       <div class="trip-right">
         <div class="section-label">Why In Person</div>
         <h2 class="section-title">You can read about Thailand forever. At some point you have to go.</h2>
-        <p>There's good information out there and you've probably found most of it. What it can't do is tell you whether <em>you</em> specifically will be okay here. Your budget, your health, your personality, the way you like to live.</p>
-        <p>That's what five days on the ground does. Not five days of tourism — five days of the stuff that actually determines whether this works: what your money buys, what the healthcare is really like, what a neighborhood feels like at 7am on a Tuesday.</p>
-        <p>I grew up in the US. I've been taking people through Bangkok for years. When I show you something here — a pharmacy shelf, a dental clinic, an apartment in a neighborhood that doesn't show up in any guidebook — I know what the American version of that looks like. I'm not selling you Thailand. I'm giving you a straight read from someone who left the same place you're leaving and has been here nearly 12 years.</p>
-        <p>There are people who will show you Bangkok for fifty dollars a day. This is for someone who wants a bilingual, Western-raised advocate making sure nothing important gets missed. <strong>Not a tour. A head start.</strong></p>
-        <p>Some people will do this trip and come home certain they're moving. Some will come home knowing they need another year to get their finances in order. Occasionally someone will come home and realize Thailand was never really the plan, just the dream. All three are good outcomes. The one I'm trying to prevent is someone spending $20,000 on a move they weren't ready for.</p>
+        <p>There's good information out there and most people doing this research have found it. What it can't do is answer whether <em>you</em> specifically will be okay here — your budget, your health, your personality, the way you like to live.</p>
+        <p>That's what five days on the ground does. Not tourism — five days of the things that actually determine whether this works: what your money buys, what the healthcare is really like, what a neighborhood feels like at 7am on a Tuesday.</p>
+        <p>When something comes up on this trip — a pharmacy shelf, a dental clinic, an apartment in a neighborhood that doesn't appear in any guidebook — there is someone next to you who grew up in the same place you're leaving and has been here for over a decade. That's the read you can't get from a forum or a YouTube video.</p>
+        <p>Some people do this trip and come home certain they're moving. Some come home knowing they need another year to sort their finances. The one outcome worth preventing is someone spending $20,000 on a move they weren't ready for.</p>
       </div>
     </div>
   </section>
 
-  <!-- FULL RELOCATION -->
   <section class="free-call" id="relocation" style="background: var(--white);">
     <div class="free-call-inner">
       <div class="free-call-text">
-        <div class="section-label">Beyond the Scouting Trip</div>
+        <div class="section-label">Full Relocation Support</div>
         <h2 class="section-title">Full relocation support, start to finish.</h2>
-        <p>The scouting trip answers the question of whether Thailand is right for you. If the answer is yes, I help you actually get there. Properly, without expensive mistakes, and without doing it alone.</p>
-        <p>This is where I coordinate everything: the immigration lawyer for your visa application, the property agents I trust for a vetted housing shortlist, the hospital contacts for your healthcare setup, and the practical stuff: banking, 90-day reporting, utilities, SIM cards. I manage the network. You make the decisions.</p>
-        <p><strong>Pricing for full relocation support starts at $3,000</strong> and varies based on timeline, complexity, and cities involved. The $1,500 scouting trip fee comes off this total. We discuss the specifics on your free call once we know what your situation actually requires.</p>
+        <p>The scouting trip answers whether Thailand is the right move. Full relocation support is for when the answer is yes.</p>
+        <p>This covers everything required to actually get there: visa application coordination with a licensed Thai immigration lawyer, a vetted housing shortlist through trusted property agents, healthcare setup, banking, and 90-day reporting.</p>
+        <p><strong>Full relocation support starts at $3,000</strong>, varying by timeline and complexity. The $1,485 scouting trip fee comes off the total. Specifics are discussed on the free call.</p>
       </div>
       <div class="call-box">
         <div class="section-label">What Full Support Covers</div>
@@ -493,61 +460,30 @@
           <li>Healthcare setup: hospital introductions, insurance guidance, doctor referrals</li>
           <li>Banking and money transfer guidance</li>
           <li>90-day reporting setup and reminders</li>
-          <li>Utilities, internet, SIM cards. The practical stuff nobody thinks about until they arrive.</li>
-          <li>Ongoing support for the first 90 days after you land</li>
-          <li>One person to call when something goes sideways</li>
+          <li>Utilities and internet setup</li>
+          <li>One point of contact for the first 90 days after you land</li>
         </ul>
         <a href="#contact" class="btn-primary">Start With a Free Call</a>
       </div>
     </div>
   </section>
 
-  <section class="cities" id="cities">
+  <section class="cities" id="bangkok">
     <div class="section-label">Where We Work</div>
-    <h2 class="section-title">Bangkok and Chiang Mai.</h2>
-    <p style="font-size:16px; font-weight:300; line-height:1.85; color:var(--teak2); max-width:600px;">Most people picture Thailand as beaches. The beach is a cheap flight away whenever you want it. Where you actually live is a different question, and it has more to do with who you are than what looks good in photos.</p>
-    <div class="cities-grid">
-      <div class="city-card" style="padding:0; overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=700&q=80" alt="Bangkok skyline and river" style="width:100%; height:200px; object-fit:cover; object-position:center;"/>
-        <div style="padding: 32px 36px;">
-        <div class="city-icon">🏙️</div>
-        <h3>Bangkok</h3>
-        <p>A city of ten million where you can eat a proper meal for two dollars, take the train across town for a dollar, and live in a quiet neighbourhood that most visitors never find. The transit system keeps expanding. The further you get from the expat areas, the cheaper and more interesting things get. History and temples turn up on streets that aren't in any guidebook.</p>
-        <ul class="city-facts">
-          <li>Growing BTS and MRT network including newer lines</li>
-          <li>World-class private hospitals</li>
-          <li>Residential neighbourhoods at every price point</li>
-          <li>History and culture on streets most tourists never find</li>
-          <li>Higher cost than Chiang Mai, still a fraction of home</li>
-        </ul>
-        </div>
-      </div>
-      <div class="city-card" style="padding:0; overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80" alt="Chiang Mai temple" style="width:100%; height:200px; object-fit:cover; object-position:center;"/>
-        <div style="padding: 32px 36px;">
-        <div class="city-icon">🌿</div>
-        <h3>Chiang Mai</h3>
-        <p>Slower, cooler, and cheaper than Bangkok. You can drive yourself around without it being a nightmare. The Old City has temples that are over 700 years old. Older than anything in Bangkok. A large expat community has settled here, not because there's nothing else, but because once you've spent time here it's hard to imagine being somewhere else.</p>
-        <ul class="city-facts">
-          <li>Lower cost of living than Bangkok</li>
-          <li>Manageable to drive or ride a scooter</li>
-          <li>Large, well-established expat community</li>
-          <li>Excellent hospitals including Bangkok Hospital Chiang Mai</li>
-          <li>Cooler climate, surrounded by mountains</li>
-        </ul>
-        </div>
-      </div>
-    </div>
+    <h2 class="section-title">Bangkok.</h2>
+    <p style="font-size:16px; font-weight:300; line-height:1.85; color:var(--teak2); max-width:680px;">Bangkok is where most people start, and for good reason. It has the infrastructure, the international hospitals, the transit network, and the range of neighborhoods to suit almost any budget or lifestyle.</p>
+    <p style="font-size:16px; font-weight:300; line-height:1.85; color:var(--teak2); max-width:680px; margin-top: 16px;">The scouting trip is based in Bangkok. It covers enough ground to give a realistic picture of what daily life here actually looks like — costs, neighborhoods, healthcare, getting around. For most people considering a move to Thailand, Bangkok answers the question.</p>
+    <p style="font-size:16px; font-weight:300; line-height:1.85; color:var(--teak2); max-width:680px; margin-top: 16px;">If another city is on your mind, bring it up on the free call.</p>
   </section>
 
   <section class="numbers" id="numbers">
     <div class="numbers-inner">
       <div>
         <div class="section-label">The Numbers</div>
-        <h2 class="section-title">What a good life here costs per month.</h2>
-        <p>The table tells most of the story. The number that gets people isn't the rent. It's healthcare. A solid expat health insurance plan runs <strong>$80 to $120 a month.</strong> A GP visit costs $25. Private hospitals here are genuinely good. You'll see one on the scouting trip and judge for yourself.</p>
-        <p>Dental care isn't covered by Medicare at home. A cleaning at a good private clinic in Bangkok costs about $35. Not a deal. Just the price.</p>
-        <p><strong>Thailand is affordable, not free.</strong> Coming here without enough money doesn't work. I've seen it happen and it doesn't end well. The retirement visa income threshold exists for exactly this reason. If you're not there yet, we talk about that before anyone buys a plane ticket.</p>
+        <h2 class="section-title">What a good life in Bangkok costs per month.</h2>
+        <p>The table covers most of it. The number that tends to surprise people isn't the rent — it's healthcare. A solid expat health insurance plan runs <strong>$80 to $120 a month.</strong> A GP visit costs around $25. Private hospitals in Bangkok are genuinely good.</p>
+        <p>Dental care isn't covered by Medicare at home. A cleaning at a reputable private clinic in Bangkok costs about $35.</p>
+        <p><strong>Thailand is affordable. It is not free.</strong> The retirement visa income threshold exists for a reason, and anyone who arrives without sufficient funds runs into serious problems. That conversation happens on the free call, before anyone books a flight.</p>
       </div>
       <div>
         <table class="cost-table">
@@ -575,16 +511,24 @@
     </div>
   </section>
 
+  <div class="honest-banner">
+    <div class="honest-icon">💬</div>
+    <div>
+      <h3>The visa threshold is real. It exists for a reason.</h3>
+      <p>Thailand's retirement visa requires you to be <strong>50 years of age or older</strong>, with either <strong>800,000 THB in a Thai bank account (about $22,000 USD) or roughly $2,200/month in guaranteed income.</strong> If you're under 50, this specific pathway isn't available yet. If the finances aren't quite there, that conversation happens on the free call — before anyone books a flight.</p>
+    </div>
+  </div>
+
   <section class="cta" id="contact">
     <div class="cta-inner">
       <div class="section-label">Get Started</div>
       <h2 class="section-title">Book a free call.</h2>
-      <p>Thirty minutes. Tell me where you are: your timeline, your budget, what's holding you back. I'll tell you honestly what I think. If Thailand makes sense, we talk about what the path looks like. If it doesn't, you'll know why, and you'll have saved yourself a lot of time and money finding out the hard way.</p>
+      <p>Thirty minutes. No obligation. Bring a budget, a timeline, and any questions that haven't been answered by the research already done. The call is straight — if Thailand makes sense, the next steps are clear. If it doesn't, that's worth knowing too.</p>
       <div class="cta-buttons">
         <a href="https://line.me/ti/p/@thailandretirementservice" class="btn-line">💬 Message on LINE</a>
-        <a href="/cdn-cgi/l/email-protection#aec7c0c8c1eedac6cfc7c2cfc0cadccbdac7dccbc3cbc0daddcbdcd8c7cdcb80cdc1c3" class="btn-ghost">Email instead</a>
+        <a href="mailto:info@thailandretirementservice.com" class="btn-ghost">Email instead</a>
       </div>
-      <div class="cta-note">LINE: @thailandretirementservice &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721b1c141d32061a131b1e131c160017061b00171f171c06011700041b11175c111d1f">[email&#160;protected]</a> &nbsp;·&nbsp; Response within 24 hours</div>
+      <div class="cta-note">LINE: @thailandretirementservice &nbsp;·&nbsp; info@thailandretirementservice.com &nbsp;·&nbsp; Response within 24 hours</div>
     </div>
   </section>
 
@@ -592,7 +536,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         Thailand Retirement Service
-        <p>Bangkok-based. Thai national. Native English speaker. Nearly 12 years of living it.</p>
+        <p>Bangkok-based. Thai national. Native English speaker. Over ten years of living it.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -601,7 +545,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#freecall">Free Call</a></li>
             <li><a href="#trip">The Scouting Trip</a></li>
-            <li><a href="#cities">Bangkok & Chiang Mai</a></li>
+            <li><a href="#bangkok">Bangkok</a></li>
             <li><a href="#numbers">The Numbers</a></li>
           </ul>
         </div>
@@ -609,4 +553,17 @@
           <h6>Contact</h6>
           <ul>
             <li><a href="#contact">Book a Free Call</a></li>
-            <li><a href="https://line.me/t
+            <li><a href="https://line.me/ti/p/@thailandretirementservice">LINE: @thailandretirementservice</a></li>
+            <li><a href="mailto:info@thailandretirementservice.com">info@thailandretirementservice.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Thailand Retirement Service</span>
+      <span>thailandretirementservice.com</span>
+    </div>
+  </footer>
+
+</body>
+</html>
