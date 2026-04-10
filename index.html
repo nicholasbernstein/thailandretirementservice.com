@@ -13,7 +13,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
 :root {
   --sand:   #F5EFE4;
   --sand2:  #EAE0CE;
@@ -245,6 +244,69 @@ h1 em { font-style: italic; color: var(--terra); }
 .call-free-note { font-size: 14px; color: var(--teak2); margin-bottom: 28px; }
 .call-box p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak2); margin-bottom: 32px; }
 
+/* QUESTIONNAIRE */
+.questionnaire { padding: 100px 56px; background: var(--white); }
+.questionnaire-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+.questionnaire-intro p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.questionnaire-intro p:last-child { margin-bottom: 0; }
+.q-threshold {
+  background: var(--sand); border-left: 3px solid var(--terra);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 20px; margin-top: 28px;
+  font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--teak2);
+}
+.q-threshold strong { color: var(--teak); font-weight: 600; }
+.q-form { display: flex; flex-direction: column; }
+.q-section { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.q-section:first-child { padding-top: 0; }
+.q-section:last-child { border-bottom: none; }
+.q-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+}
+.q-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.q-field { margin-bottom: 16px; }
+.q-field:last-child { margin-bottom: 0; }
+.q-field label { display: block; font-size: 13px; font-weight: 600; color: var(--teak); margin-bottom: 6px; }
+.q-field .q-hint { font-size: 12px; font-weight: 300; color: var(--teak3); margin-bottom: 6px; line-height: 1.5; }
+.q-field input[type="text"],
+.q-field input[type="number"],
+.q-field input[type="email"],
+.q-field select,
+.q-field textarea {
+  width: 100%; font-size: 14px; font-family: 'Nunito', sans-serif;
+  color: var(--text); background: var(--sand);
+  border: 1px solid var(--sand2); border-radius: 10px;
+  padding: 10px 14px; outline: none; resize: vertical;
+  transition: border-color 0.2s;
+}
+.q-field textarea { min-height: 90px; }
+.q-field input:focus, .q-field select:focus, .q-field textarea:focus {
+  border-color: var(--teak2); background: var(--white);
+}
+.q-radio-group, .q-check-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.q-radio-group label, .q-check-group label {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; font-weight: 300; color: var(--teak2); cursor: pointer; line-height: 1.5;
+}
+.q-radio-group input, .q-check-group input { margin-top: 3px; flex-shrink: 0; accent-color: var(--terra); }
+.q-submit-area { padding-top: 24px; }
+.q-submit-area p { font-size: 13px; font-weight: 300; color: var(--teak3); margin-bottom: 20px; line-height: 1.65; }
+.q-submit-btn {
+  background: var(--terra); color: var(--white);
+  font-size: 15px; font-weight: 600; font-family: 'Nunito', sans-serif;
+  padding: 16px 36px; border-radius: 100px; border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,113,74,0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.q-submit-btn:hover { background: var(--teak); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(92,61,46,0.25); }
+.q-success {
+  display: none; background: var(--sage3); border-radius: 16px;
+  padding: 48px 36px; text-align: center;
+}
+.q-success h3 { font-family: 'Lora', serif; font-size: 24px; color: var(--teak); margin-bottom: 12px; }
+.q-success p { font-size: 15px; font-weight: 300; color: var(--teak2); line-height: 1.8; }
+
 /* BANGKOK */
 .cities { padding: 100px 56px; background: var(--sand); }
 .cities p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); max-width: 680px; margin-top: 16px; }
@@ -318,6 +380,9 @@ footer { background: var(--text); padding: 64px 56px 40px; }
   .relocation { padding: 60px 24px; }
   .free-call { padding: 60px 24px; }
   .free-call-inner { grid-template-columns: 1fr; gap: 40px; }
+  .questionnaire { padding: 60px 24px; }
+  .questionnaire-inner { grid-template-columns: 1fr; gap: 40px; }
+  .q-row { grid-template-columns: 1fr; }
   .cities { padding: 60px 24px; }
   .cta { padding: 60px 24px; }
   footer { padding: 48px 24px 32px; }
@@ -325,7 +390,6 @@ footer { background: var(--text); padding: 64px 56px 40px; }
   .footer-links { gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 }
-```
 
   </style>
 </head>
@@ -341,8 +405,9 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       <li><a href="#about">About</a></li>
       <li><a href="#relocation">Full Relocation</a></li>
       <li><a href="#freecall">Free Call</a></li>
+      <li><a href="#questionnaire">Get Started</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <a href="#questionnaire" class="nav-cta">Get Started</a>
   </nav>
 
   <!-- HERO -->
@@ -353,7 +418,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       <p class="hero-sub fu d2">Five days in Bangkok with someone who grew up where you did, knows exactly what you're leaving, and has lived here long enough to know what you're actually walking into.</p>
       <div class="hero-actions fu d3">
         <a href="#trip" class="btn-primary">See the scouting trip</a>
-        <a href="#contact" class="btn-ghost">Get in touch</a>
+        <a href="#questionnaire" class="btn-ghost">Get started</a>
       </div>
     </div>
     <div class="hero-right">
@@ -376,38 +441,35 @@ footer { background: var(--text); padding: 64px 56px 40px; }
     <div class="trip-inner">
       <div class="trip-cards">
 
-```
-    <div class="trip-card">
-      <div class="trip-price">$1,485</div>
-      <div class="trip-price-note">Five days · Bangkok · Flights and accommodation not included</div>
-      <h3>The Bangkok Scouting Trip</h3>
-      <p>Before arrival, you fill out a short questionnaire — budget, health situation, priorities, what's keeping you up at night about this move. The five days are built around those answers. Every scout covers similar ground. No two are exactly alike.</p>
-      <p>By the end: a real apartment viewed in a neighborhood that actually fits, a supermarket walked, medications found on a pharmacy shelf with prices, the transit system understood, streets walked that could actually be home. The trip ends with a written plan — visa pathway, realistic monthly budget, housing approach, timeline.</p>
-      <div class="trip-note">The $1,485 covers five full days, transit, and the written plan. Flights, accommodation, and meals are separate.</div>
-      <a href="#contact" class="btn-primary">Get in Touch</a>
+        <div class="trip-card">
+          <div class="trip-price">$1,485</div>
+          <div class="trip-price-note">Five days · Bangkok · Flights and accommodation not included</div>
+          <h3>The Bangkok Scouting Trip</h3>
+          <p>Before arrival, you fill out a short questionnaire — budget, health situation, priorities, what's keeping you up at night about this move. The five days are built around those answers. Every scout covers similar ground. No two are exactly alike.</p>
+          <p>By the end: a real apartment viewed in a neighborhood that actually fits, a supermarket walked, medications found on a pharmacy shelf with prices, the transit system understood, streets walked that could actually be home. The trip ends with a written plan — visa pathway, realistic monthly budget, housing approach, timeline.</p>
+          <div class="trip-note">The $1,485 covers five full days, transit, and the written plan. Flights, accommodation, and meals are separate.</div>
+          <a href="#questionnaire" class="btn-primary">Get Started</a>
+        </div>
+
+        <div class="trip-card secondary">
+          <div class="trip-price">$875</div>
+          <div class="trip-price-note">Three days · Bangkok · Flights and accommodation not included</div>
+          <h3>The Three-Day Option</h3>
+          <p>Same tailored approach — questionnaire before arrival, itinerary built around your situation. Less ground covered, lighter written summary. Right for people who want a real look without committing to a full week.</p>
+          <div class="trip-note">The $875 covers three full days, transit, and the written summary. Flights, accommodation, and meals are separate.</div>
+          <a href="#questionnaire" class="btn-primary">Get Started</a>
+        </div>
+
+      </div>
+
+      <div class="trip-right">
+        <div class="section-label">What This Is</div>
+        <h2 class="section-title">Most people who visit Thailand for the first time see temples, beaches, and hotel breakfast buffets.</h2>
+        <p><strong>This isn't that.</strong></p>
+        <p>The scouting trip is built around the things that actually determine whether a move works: what your money buys in practice, what the healthcare system is really like, what a neighborhood feels like at 7am on a Tuesday.</p>
+        <p>It ends with a written plan — something to take home and act on.</p>
+      </div>
     </div>
-
-    <div class="trip-card secondary">
-      <div class="trip-price">$875</div>
-      <div class="trip-price-note">Three days · Bangkok · Flights and accommodation not included</div>
-      <h3>The Three-Day Option</h3>
-      <p>Same tailored approach — questionnaire before arrival, itinerary built around your situation. Less ground covered, lighter written summary. Right for people who want a real look without committing to a full week.</p>
-      <div class="trip-note">The $875 covers three full days, transit, and the written summary. Flights, accommodation, and meals are separate.</div>
-      <a href="#contact" class="btn-primary">Get in Touch</a>
-    </div>
-
-  </div>
-
-  <div class="trip-right">
-    <div class="section-label">What This Is</div>
-    <h2 class="section-title">Most people who visit Thailand for the first time see temples, beaches, and hotel breakfast buffets.</h2>
-    <p><strong>This isn't that.</strong></p>
-    <p>The scouting trip is built around the things that actually determine whether a move works: what your money buys in practice, what the healthcare system is really like, what a neighborhood feels like at 7am on a Tuesday.</p>
-    <p>It ends with a written plan — something to take home and act on.</p>
-  </div>
-</div>
-```
-
   </section>
 
   <!-- WHY IN PERSON -->
@@ -499,7 +561,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       <h2 class="section-title">When the answer is yes.</h2>
       <p>The scouting trip answers whether Thailand is the right move. Full relocation support is for when it is. Visa coordination, housing, healthcare setup, banking — the logistics of actually getting there, handled through vetted contacts.</p>
       <p><strong>Full relocation support starts at $3,000.</strong> The scouting trip fee comes off the total. Specifics are discussed on the call.</p>
-      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#questionnaire" class="btn-primary">Get Started</a>
     </div>
   </section>
 
@@ -517,7 +579,202 @@ footer { background: var(--text); padding: 64px 56px 40px; }
         <div class="call-free">Free</div>
         <div class="call-free-note">30 minutes · Zoom or email · No obligation</div>
         <p>Most people want to know if their budget actually works, what healthcare looks like at their age, and whether this is the right time. Bring whatever's on your mind.</p>
-        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="#questionnaire" class="btn-primary">Fill Out the Questionnaire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONNAIRE -->
+
+  <section class="questionnaire" id="questionnaire">
+    <div class="questionnaire-inner">
+      <div class="questionnaire-intro">
+        <div class="section-label">Before We Talk</div>
+        <h2 class="section-title">Five minutes. No obligation.</h2>
+        <p>This helps determine whether a free call makes sense and, if so, makes that call more useful for both of us.</p>
+        <p>After submitting, you'll hear back within 24 hours — either with a call booking link or a brief follow-up question.</p>
+        <div class="q-threshold">
+          <strong>A note on eligibility.</strong> Thailand's retirement visa requires you to be 50 or older, with either 800,000 THB (~$22,000 USD) in a Thai bank account or roughly $2,200/month in guaranteed income. If that's not where you are yet, fill this out anyway — and we'll take it from there.
+        </div>
+      </div>
+
+      <div>
+        <form class="q-form" id="q-form" onsubmit="handleQSubmit(event)">
+
+          <div class="q-section">
+            <div class="q-section-label">About you</div>
+            <div class="q-row">
+              <div class="q-field">
+                <label for="q-first">First name</label>
+                <input type="text" id="q-first" name="first_name" placeholder="First name" required>
+              </div>
+              <div class="q-field">
+                <label for="q-last">Last name</label>
+                <input type="text" id="q-last" name="last_name" placeholder="Last name" required>
+              </div>
+            </div>
+            <div class="q-row">
+              <div class="q-field">
+                <label for="q-age">Age</label>
+                <input type="number" id="q-age" name="age" placeholder="e.g. 58" min="40" max="90" required>
+              </div>
+              <div class="q-field">
+                <label for="q-nationality">Nationality</label>
+                <input type="text" id="q-nationality" name="nationality" placeholder="e.g. American, British" required>
+              </div>
+            </div>
+            <div class="q-field">
+              <label for="q-email">Email address</label>
+              <input type="email" id="q-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="q-field">
+              <label for="q-country">Current country of residence</label>
+              <input type="text" id="q-country" name="country" placeholder="e.g. United States" required>
+            </div>
+            <div class="q-field">
+              <label>Are you inquiring for yourself, or for yourself and a partner?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="party" value="Just me" required> Just me</label>
+                <label><input type="radio" name="party" value="Me and a partner"> Me and a partner</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">Finances</div>
+            <div class="q-field">
+              <label for="q-budget">Estimated monthly budget for living expenses in Thailand</label>
+              <div class="q-hint">For your own context — not a test.</div>
+              <select id="q-budget" name="budget" required>
+                <option value="" disabled selected>Select a range</option>
+                <option>Under $1,500/month</option>
+                <option>$1,500 – $2,500/month</option>
+                <option>$2,500 – $3,500/month</option>
+                <option>$3,500 – $5,000/month</option>
+                <option>Over $5,000/month</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label>Primary source of retirement income (select all that apply)</label>
+              <div class="q-check-group">
+                <label><input type="checkbox" name="income" value="Social Security"> Social Security</label>
+                <label><input type="checkbox" name="income" value="Pension"> Pension</label>
+                <label><input type="checkbox" name="income" value="Investment / portfolio income"> Investment / portfolio income</label>
+                <label><input type="checkbox" name="income" value="Rental income"> Rental income</label>
+                <label><input type="checkbox" name="income" value="Part-time or freelance work"> Part-time or freelance work</label>
+                <label><input type="checkbox" name="income" value="Not yet retired / still working"> Not yet retired / still working</label>
+                <label><input type="checkbox" name="income" value="Other"> Other</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">Health</div>
+            <div class="q-field">
+              <label>Ongoing medical conditions or medications that would factor into relocation planning?</label>
+              <div class="q-hint">No need to share specifics — a general yes/no helps with visa and insurance planning.</div>
+              <div class="q-radio-group">
+                <label><input type="radio" name="health" value="Yes" required> Yes — I have conditions or medications to consider</label>
+                <label><input type="radio" name="health" value="No"> No significant medical considerations</label>
+                <label><input type="radio" name="health" value="Prefer to discuss"> I'd rather discuss this on the call</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label>Do you currently have international health insurance?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="insurance" value="Yes" required> Yes</label>
+                <label><input type="radio" name="insurance" value="No"> No</label>
+                <label><input type="radio" name="insurance" value="Researching"> Not sure / researching options</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">Timeline and intention</div>
+            <div class="q-field">
+              <label for="q-stage">Where are you in the decision process?</label>
+              <select id="q-stage" name="decision_stage" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Early research — exploring whether Thailand is realistic</option>
+                <option>Serious consideration — doing deeper research now</option>
+                <option>Decided — working out the how and when</option>
+                <option>Ready to move within the next 12 months</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label for="q-timeline">When are you thinking about making the move?</label>
+              <select id="q-timeline" name="timeline" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Within 6 months</option>
+                <option>6 – 12 months</option>
+                <option>1 – 2 years</option>
+                <option>2 – 3 years</option>
+                <option>More than 3 years out</option>
+                <option>No fixed timeline yet</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label>Have you spent time in Thailand before?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="thailand_exp" value="Never been" required> Never been</label>
+                <label><input type="radio" name="thailand_exp" value="Visited once or twice"> Visited once or twice as a tourist</label>
+                <label><input type="radio" name="thailand_exp" value="Visited multiple times"> Visited multiple times</label>
+                <label><input type="radio" name="thailand_exp" value="Extended time"> Spent extended time here (months or more)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">Priorities</div>
+            <div class="q-field">
+              <label>What matters most in a place to live? Select up to three.</label>
+              <div class="q-check-group">
+                <label><input type="checkbox" name="priorities" value="Healthcare access and quality"> Healthcare access and quality</label>
+                <label><input type="checkbox" name="priorities" value="Cost of living"> Cost of living</label>
+                <label><input type="checkbox" name="priorities" value="Climate"> Climate</label>
+                <label><input type="checkbox" name="priorities" value="Social life and community"> Social life and community</label>
+                <label><input type="checkbox" name="priorities" value="Walkability and convenience"> Walkability and convenience</label>
+                <label><input type="checkbox" name="priorities" value="Peace and quiet"> Peace and quiet</label>
+                <label><input type="checkbox" name="priorities" value="Proximity to nature"> Proximity to nature</label>
+                <label><input type="checkbox" name="priorities" value="English-friendly environment"> English-friendly environment</label>
+                <label><input type="checkbox" name="priorities" value="Safety"> Safety</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label for="q-concerns">What worries you most about retiring in Thailand?</label>
+              <div class="q-hint">This is the most useful thing you can tell me. Be as direct as you want.</div>
+              <textarea id="q-concerns" name="concerns" placeholder="e.g. healthcare costs if something serious happens, visa renewals, feeling isolated, not speaking Thai..."></textarea>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">One last thing</div>
+            <div class="q-field">
+              <label for="q-referral">How did you find Thailand Retirement Service?</label>
+              <select id="q-referral" name="referral">
+                <option value="" disabled selected>Select one</option>
+                <option>Google search</option>
+                <option>Word of mouth / referral</option>
+                <option>Facebook group or forum</option>
+                <option>Reddit</option>
+                <option>YouTube</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="q-submit-area">
+            <p>After submitting, you'll hear back within 24 hours — either with a call booking link or a brief follow-up question.</p>
+            <button type="submit" class="q-submit-btn">Submit</button>
+          </div>
+
+        </form>
+
+        <div class="q-success" id="q-success">
+          <h3>Thank you.</h3>
+          <p>Your responses have been received. You'll hear back within 24 hours.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -536,13 +793,13 @@ footer { background: var(--text); padding: 64px 56px 40px; }
 
   <section class="cta" id="contact">
     <div class="cta-inner">
-      <div class="section-label">Get Started</div>
+      <div class="section-label">Get in Touch</div>
       <h2 class="section-title">Send a message.</h2>
       <p>Ask whatever you want. Bring a budget, a timeline, and the questions that haven't been answered by the research already done. If Thailand makes sense, the next steps are clear. If it doesn't, that's worth knowing too.</p>
       <div class="cta-buttons">
-        <a href="mailto:tong@thailandretirementservice.com" class="btn-email">Email Tong</a>
+        <a href="mailto:info@thailandretirementservice.com" class="btn-email">Email Tong</a>
       </div>
-      <div class="cta-note">tong@thailandretirementservice.com &nbsp;·&nbsp; Response within 24 hours</div>
+      <div class="cta-note">info@thailandretirementservice.com &nbsp;·&nbsp; Response within 24 hours</div>
     </div>
   </section>
 
@@ -564,13 +821,14 @@ footer { background: var(--text); padding: 64px 56px 40px; }
             <li><a href="#about">About</a></li>
             <li><a href="#relocation">Full Relocation</a></li>
             <li><a href="#freecall">Free Call</a></li>
+            <li><a href="#questionnaire">Get Started</a></li>
             <li><a href="#bangkok">Bangkok</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h6>Contact</h6>
           <ul>
-            <li><a href="mailto:tong@thailandretirementservice.com">tong@thailandretirementservice.com</a></li>
+            <li><a href="mailto:info@thailandretirementservice.com">info@thailandretirementservice.com</a></li>
             <li><a href="#contact">Get in Touch</a></li>
           </ul>
         </div>
@@ -613,6 +871,13 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       .then(r => r.json())
       .then(data => applyRate(1 / data.rates.USD))
       .catch(() => applyRate(34.5));
+
+    function handleQSubmit(e) {
+      e.preventDefault();
+      document.getElementById('q-form').style.display = 'none';
+      document.getElementById('q-success').style.display = 'block';
+      document.getElementById('q-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   </script>
 
 </body>
