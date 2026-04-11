@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thailand Retirement Service — ภาษาไทย</title>
+  <meta name="description" content="A personalized scouting trip to Bangkok for people seriously considering retiring in Thailand."/>
+  <meta property="og:title" content="Thailand Retirement Service"/>
+  <meta property="og:description" content="A personalized scouting trip to Bangkok for people seriously considering retiring in Thailand."/>
+  <meta property="og:type" content="website"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sand:   #F5EFE4;
+  --sand2:  #EAE0CE;
+  --terra:  #C8714A;
+  --terra2: #E8967A;
+  --teak:   #5C3D2E;
+  --teak2:  #8B6350;
+  --teak3:  #B89880;
+  --sage:   #7A9E87;
+  --sage3:  #D4E8DC;
+  --white:  #FDFAF6;
+  --line:   rgba(92,61,46,0.12);
+  --text:   #2E1F14;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', 'Sarabun', sans-serif;
+  background: var(--sand);
+  color: var(--text);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fu { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.25s; }
+.d3 { animation-delay: 0.4s; }
+.d4 { animation-delay: 0.55s; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 56px;
+  background: rgba(245,239,228,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  font-family: 'Lora', serif; font-size: 18px; font-weight: 500;
+  color: var(--teak); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terra); flex-shrink: 0; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--teak2); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--terra); }
+.nav-cta {
+  background: var(--terra); color: var(--white);
+  font-size: 13px; font-weight: 600;
+  padding: 10px 22px; border-radius: 100px;
+  text-decoration: none; transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--teak); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 58% 42%;
+  padding-top: 82px;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px;
+}
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(42px, 4.5vw, 64px);
+  font-weight: 400; line-height: 1.15; color: var(--teak);
+  margin-bottom: 24px;
+}
+h1 em { font-style: italic; color: var(--terra); }
+.hero-sub {
+  font-size: 17px; font-weight: 300; line-height: 1.85;
+  color: var(--teak2); max-width: 500px; margin-bottom: 44px;
+}
+.hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--terra); color: var(--white);
+  font-size: 15px; font-weight: 600;
+  padding: 16px 36px; border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(200,113,74,0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--teak); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(92,61,46,0.25); }
+.btn-ghost {
+  font-size: 15px; font-weight: 500; color: var(--teak2);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
+}
+.btn-ghost::after { content: '→'; transition: transform 0.2s; }
+.btn-ghost:hover { color: var(--terra); }
+.btn-ghost:hover::after { transform: translateX(4px); }
+
+.hero-right { position: relative; overflow: hidden; background: var(--teak); }
+.hero-photo { position: absolute; inset: 0; }
+.hero-card {
+  position: absolute; bottom: 44px; left: 32px; right: 32px;
+  background: rgba(245,239,228,0.97); border-radius: 16px;
+  padding: 22px 26px; display: flex; gap: 16px; align-items: flex-start;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+.card-icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: var(--terra); display: flex; align-items: center;
+  justify-content: center; font-size: 20px; flex-shrink: 0;
+}
+.card-text h4 { font-family: 'Lora', serif; font-size: 15px; color: var(--teak); margin-bottom: 4px; }
+.card-text p { font-size: 13px; color: var(--teak2); line-height: 1.5; }
+
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400; line-height: 1.2; color: var(--teak);
+  margin-bottom: 20px;
+}
+
+/* SCOUTING TRIP */
+.trip { padding: 100px 56px; background: var(--white); }
+.trip-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.trip-cards { display: flex; flex-direction: column; gap: 28px; }
+.trip-card {
+  background: var(--sand); border-radius: 24px;
+  padding: 40px; border: 1px solid var(--sand2);
+}
+.trip-card.secondary { background: var(--white); }
+.trip-price { font-family: 'Lora', serif; font-size: 52px; font-weight: 400; color: var(--terra); line-height: 1; margin-bottom: 6px; }
+.trip-price-note { font-size: 13px; color: var(--teak2); margin-bottom: 20px; }
+.trip-card h3 { font-family: 'Lora', serif; font-size: 20px; font-weight: 500; color: var(--teak); margin-bottom: 12px; }
+.trip-card p { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--teak2); margin-bottom: 12px; }
+.trip-card p:last-of-type { margin-bottom: 0; }
+.trip-note {
+  font-size: 13px; font-weight: 300; color: var(--teak3);
+  font-style: italic; line-height: 1.7;
+  padding-top: 18px; margin-top: 18px; border-top: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+
+.trip-right { padding-top: 8px; }
+.trip-right p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.trip-right p:last-child { margin-bottom: 0; }
+.trip-right strong { color: var(--teak); font-weight: 600; }
+
+/* WHY IN PERSON */
+.why { padding: 100px 56px; background: var(--sand); }
+.why-inner { max-width: 760px; margin: 0 auto; }
+.why-inner p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.why-inner p:last-child { margin-bottom: 0; }
+.why-inner em { font-style: italic; }
+
+/* NUMBERS */
+.numbers { padding: 100px 56px; background: var(--white); }
+.numbers-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.numbers-inner p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.numbers-inner p:last-child { margin-bottom: 0; }
+.numbers-inner strong { color: var(--teak); font-weight: 600; }
+.cost-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.cost-table th {
+  text-align: left; padding: 12px 16px;
+  background: var(--teak); color: var(--sand);
+  font-weight: 600; font-size: 12px; letter-spacing: 0.05em;
+}
+.cost-table th:not(:first-child) { text-align: right; }
+.cost-table td { padding: 11px 16px; border-bottom: 1px solid var(--line); color: var(--teak2); }
+.cost-table td:not(:first-child) { text-align: right; font-family: monospace; font-size: 13px; }
+.cost-table tr:hover td { background: var(--sand2); }
+.cost-total td { background: var(--sand2) !important; font-weight: 600; color: var(--teak) !important; }
+.rate-note { font-size: 12px; color: var(--teak3); margin-top: 10px; font-style: italic; }
+
+/* VISA BANNER */
+.honest-banner {
+  background: var(--teak); padding: 48px 56px;
+  display: flex; gap: 28px; align-items: flex-start;
+}
+.honest-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.honest-banner h3 {
+  font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+  color: var(--sand); margin-bottom: 10px;
+}
+.honest-banner p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak3); }
+.honest-banner p strong { color: var(--sand2); font-weight: 600; }
+
+/* ABOUT */
+.about { padding: 100px 56px; background: var(--sand); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-photo {
+  background: var(--teak); border-radius: 24px;
+  aspect-ratio: 4/5; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.about-photo-placeholder { color: var(--teak3); font-size: 14px; font-weight: 300; text-align: center; padding: 24px; }
+.about-tagline {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--teak3); margin-bottom: 10px;
+}
+.about-text p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-text em { font-style: italic; }
+
+/* FULL RELOCATION */
+.relocation { padding: 80px 56px; background: var(--white); }
+.relocation-inner { max-width: 680px; }
+.relocation-inner p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.relocation-inner strong { color: var(--teak); font-weight: 600; }
+
+/* FREE CALL */
+.free-call { padding: 80px 56px; background: var(--sand2); }
+.free-call-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.free-call-text p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.free-call-text p:last-child { margin-bottom: 0; }
+.call-box {
+  background: var(--white); border-radius: 24px;
+  padding: 48px 44px;
+  box-shadow: 0 8px 40px rgba(92,61,46,0.08);
+  border: 1px solid var(--sand2);
+}
+.call-free { font-family: 'Lora', serif; font-size: 52px; color: var(--sage); font-weight: 400; line-height: 1; margin-bottom: 6px; }
+.call-free-note { font-size: 14px; color: var(--teak2); margin-bottom: 28px; }
+.call-box p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak2); margin-bottom: 32px; }
+
+/* QUESTIONNAIRE */
+.questionnaire { padding: 100px 56px; background: var(--white); }
+.questionnaire-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+.questionnaire-intro p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); margin-bottom: 20px; }
+.questionnaire-intro p:last-child { margin-bottom: 0; }
+.q-threshold {
+  background: var(--sand); border-left: 3px solid var(--terra);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 20px; margin-top: 28px;
+  font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--teak2);
+}
+.q-threshold strong { color: var(--teak); font-weight: 600; }
+.q-form { display: flex; flex-direction: column; }
+.q-section { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.q-section:first-child { padding-top: 0; }
+.q-section:last-child { border-bottom: none; }
+.q-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+}
+.q-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.q-field { margin-bottom: 16px; }
+.q-field:last-child { margin-bottom: 0; }
+.q-field label { display: block; font-size: 13px; font-weight: 600; color: var(--teak); margin-bottom: 6px; }
+.q-field .q-hint { font-size: 12px; font-weight: 300; color: var(--teak3); margin-bottom: 6px; line-height: 1.5; }
+.q-field input[type="text"],
+.q-field input[type="number"],
+.q-field input[type="email"],
+.q-field select,
+.q-field textarea {
+  width: 100%; font-size: 14px; font-family: 'Nunito', 'Sarabun', sans-serif;
+  color: var(--text); background: var(--sand);
+  border: 1px solid var(--sand2); border-radius: 10px;
+  padding: 10px 14px; outline: none; resize: vertical;
+  transition: border-color 0.2s;
+}
+.q-field textarea { min-height: 90px; }
+.q-field input:focus, .q-field select:focus, .q-field textarea:focus {
+  border-color: var(--teak2); background: var(--white);
+}
+.q-radio-group, .q-check-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.q-radio-group label, .q-check-group label {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; font-weight: 300; color: var(--teak2); cursor: pointer; line-height: 1.5;
+}
+.q-radio-group input, .q-check-group input { margin-top: 3px; flex-shrink: 0; accent-color: var(--terra); }
+.q-submit-area { padding-top: 24px; }
+.q-submit-area p { font-size: 13px; font-weight: 300; color: var(--teak3); margin-bottom: 20px; line-height: 1.65; }
+.q-submit-btn {
+  background: var(--terra); color: var(--white);
+  font-size: 15px; font-weight: 600; font-family: 'Nunito', 'Sarabun', sans-serif;
+  padding: 16px 36px; border-radius: 100px; border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(200,113,74,0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.q-submit-btn:hover { background: var(--teak); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(92,61,46,0.25); }
+.q-success {
+  display: none; background: var(--sage3); border-radius: 16px;
+  padding: 48px 36px; text-align: center;
+}
+.q-success h3 { font-family: 'Lora', serif; font-size: 24px; color: var(--teak); margin-bottom: 12px; }
+.q-success p { font-size: 15px; font-weight: 300; color: var(--teak2); line-height: 1.8; }
+
+/* BANGKOK */
+.cities { padding: 100px 56px; background: var(--sand); }
+.cities p { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--teak2); max-width: 680px; margin-top: 16px; }
+.cities p:first-of-type { margin-top: 0; }
+
+/* CTA */
+.cta { padding: 100px 56px; background: var(--teak); }
+.cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+.cta .section-label { color: var(--teak3); }
+.cta .section-title { color: var(--sand); margin-bottom: 24px; }
+.cta p { font-size: 17px; font-weight: 300; line-height: 1.85; color: var(--teak3); margin-bottom: 48px; }
+.cta-buttons { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.btn-email {
+  background: var(--terra); color: var(--white);
+  font-size: 15px; font-weight: 600;
+  padding: 16px 36px; border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-email:hover { opacity: 0.9; transform: translateY(-2px); }
+.cta-note { font-size: 13px; color: var(--teak3); line-height: 1.6; }
+.cta-note a { color: var(--teak3); text-decoration: underline; }
+
+/* FOOTER */
+footer { background: var(--text); padding: 64px 56px 40px; }
+.footer-top {
+  display: flex; justify-content: space-between; gap: 60px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(245,239,228,0.1);
+  margin-bottom: 32px;
+}
+.footer-brand {
+  font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+  color: var(--sand); max-width: 280px;
+}
+.footer-brand p {
+  font-family: 'Nunito', 'Sarabun', sans-serif;
+  font-size: 13px; font-weight: 300; color: var(--teak3);
+  line-height: 1.7; margin-top: 12px;
+}
+.footer-links { display: flex; gap: 60px; }
+.footer-col h6 {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--teak3); margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 14px; color: var(--teak3); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--sand); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--teak3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 360px; }
+  .hero-left { padding: 60px 24px; }
+  .trip { padding: 60px 24px; }
+  .trip-inner { grid-template-columns: 1fr; }
+  .why { padding: 60px 24px; }
+  .numbers { padding: 60px 24px; }
+  .numbers-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about { padding: 60px 24px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo { aspect-ratio: 3/4; }
+  .honest-banner { padding: 36px 24px; }
+  .relocation { padding: 60px 24px; }
+  .free-call { padding: 60px 24px; }
+  .free-call-inner { grid-template-columns: 1fr; gap: 40px; }
+  .questionnaire { padding: 60px 24px; }
+  .questionnaire-inner { grid-template-columns: 1fr; gap: 40px; }
+  .q-row { grid-template-columns: 1fr; }
+  .cities { padding: 60px 24px; }
+  .cta { padding: 60px 24px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { flex-direction: column; gap: 36px; }
+  .footer-links { gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a href="#" class="nav-logo"><span class="nav-dot"></span>Thailand Retirement Service</a>
+    <ul class="nav-links">
+      <li><a href="#trip">ทริปสำรวจ</a></li>
+      <li><a href="#numbers">ตัวเลข</a></li>
+      <li><a href="#about">เกี่ยวกับ</a></li>
+      <li><a href="#relocation">การย้ายถิ่นฐานแบบเต็มรูปแบบ</a></li>
+      <li><a href="#freecall">โทรฟรี</a></li>
+      <li><a href="#questionnaire">เริ่มต้น</a></li>
+    </ul>
+    <a href="#questionnaire" class="nav-cta">เริ่มต้น</a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="fu d1">คุณค้นคว้ามาพอแล้ว<br/><em>ขั้นตอนต่อไปคือการมาดูด้วยตัวเอง</em></h1>
+      <p class="hero-sub fu d2">ห้าวันในกรุงเทพฯ กับคนที่เติบโตมาในโลกเดียวกับคุณ รู้ดีว่าคุณกำลังทิ้งอะไรไว้เบื้องหลัง และอาศัยอยู่ที่นี่มานานพอที่จะรู้ว่าคุณกำลังจะเดินเข้าสู่อะไร</p>
+      <div class="hero-actions fu d3">
+        <a href="#trip" class="btn-primary">ดูทริปสำรวจ</a>
+        <a href="#questionnaire" class="btn-ghost">เริ่มต้น</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=80" alt="Bangkok at dusk" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
+      </div>
+      <div class="hero-card">
+        <div class="card-icon">✉️</div>
+        <div class="card-text">
+          <h4>ส่งข้อความ</h4>
+          <p>ตอบกลับภายใน 24 ชั่วโมง</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOUTING TRIP -->
+
+  <section class="trip" id="trip">
+    <div class="trip-inner">
+      <div class="trip-cards">
+
+        <div class="trip-card">
+          <div class="trip-price">$1,485</div>
+          <div class="trip-price-note">ห้าวัน · กรุงเทพฯ · ไม่รวมตั๋วเครื่องบินและที่พัก</div>
+          <h3>ทริปสำรวจกรุงเทพฯ</h3>
+          <p>ก่อนเดินทางมาถึง คุณจะกรอกแบบสอบถามสั้นๆ ว่าด้วยงบประมาณ สุขภาพ สิ่งที่สำคัญ และสิ่งที่ทำให้คุณนอนไม่หลับเกี่ยวกับการย้ายครั้งนี้ ห้าวันจะถูกสร้างขึ้นรอบคำตอบเหล่านั้น ทุกทริปครอบคลุมพื้นที่ที่คล้ายกัน แต่ไม่มีสองทริปใดที่เหมือนกันทุกประการ</p>
+          <p>เมื่อจบทริป: คุณจะได้ดูอพาร์ตเมนต์จริงในย่านที่เหมาะกับคุณ เดินในซูเปอร์มาร์เก็ต หายาในร้านขายยาพร้อมราคา เข้าใจระบบขนส่งสาธารณะ และเดินในถนนที่อาจกลายเป็นบ้านของคุณ ทริปจบลงด้วยแผนที่เป็นลายลักษณ์อักษร — เส้นทางวีซ่า งบประมาณรายเดือนที่สมจริง แนวทางด้านที่พัก และไทม์ไลน์</p>
+          <div class="trip-note">ค่าบริการ $1,485 ครอบคลุมห้าวันเต็ม ค่าเดินทางในเมือง และแผนที่เป็นลายลักษณ์อักษร ตั๋วเครื่องบิน ที่พัก และอาหารคิดต่างหาก</div>
+          <a href="#questionnaire" class="btn-primary">เริ่มต้น</a>
+        </div>
+
+        <div class="trip-card secondary">
+          <div class="trip-price">$875</div>
+          <div class="trip-price-note">สามวัน · กรุงเทพฯ · ไม่รวมตั๋วเครื่องบินและที่พัก</div>
+          <h3>ตัวเลือกสามวัน</h3>
+          <p>แนวทางเดียวกันแต่ปรับให้เหมาะสม — แบบสอบถามก่อนมาถึง ตารางเวลาสร้างรอบสถานการณ์ของคุณ ครอบคลุมพื้นที่น้อยลง สรุปเป็นลายลักษณ์อักษรแบบย่อ เหมาะสำหรับผู้ที่ต้องการมองภาพที่แท้จริงโดยไม่ต้องผูกมัดกับหนึ่งสัปดาห์เต็ม</p>
+          <div class="trip-note">ค่าบริการ $875 ครอบคลุมสามวันเต็ม ค่าเดินทางในเมือง และสรุปเป็นลายลักษณ์อักษร ตั๋วเครื่องบิน ที่พัก และอาหารคิดต่างหาก</div>
+          <a href="#questionnaire" class="btn-primary">เริ่มต้น</a>
+        </div>
+
+      </div>
+
+      <div class="trip-right">
+        <div class="section-label">นี่คืออะไร</div>
+        <h2 class="section-title">คนส่วนใหญ่ที่มาเยือนประเทศไทยครั้งแรกจะเห็นวัดวาอาราม ตุ๊กตุ๊ก และบุฟเฟ่ต์อาหารเช้าของโรงแรม</h2>
+        <p><strong>คุณจะได้เห็นสิ่งเหล่านั้นด้วย แต่นั่นไม่ใช่จุดประสงค์ของทริปนี้</strong></p>
+        <p>ทริปสำรวจนี้สร้างขึ้นรอบสิ่งที่กำหนดว่าการย้ายถิ่นจะได้ผลหรือไม่จริงๆ ได้แก่ เงินของคุณซื้ออะไรได้จริงในทางปฏิบัติ ระบบสาธารณสุขเป็นอย่างไรจริงๆ และย่านหนึ่งรู้สึกอย่างไรตอนเช้าตี 7 ของวันอังคาร</p>
+        <p>ทริปจบลงด้วยแผนที่เป็นลายลักษณ์อักษร — บางอย่างที่นำกลับบ้านและลงมือทำได้จริง</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IN PERSON -->
+
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="section-label">ทำไมต้องมาด้วยตัวเอง</div>
+      <h2 class="section-title">คุณอ่านเรื่องประเทศไทยได้ตลอดไป แต่ถึงจุดหนึ่งคุณต้องมาเอง</h2>
+      <p>มีข้อมูลดีๆ อยู่มากมาย แต่สิ่งที่ข้อมูลเหล่านั้นทำไม่ได้คือตอบว่า <em>คุณ</em> โดยเฉพาะจะโอเคที่นี่หรือเปล่า — งบประมาณของคุณ สุขภาพของคุณ บุคลิกภาพของคุณ และวิถีชีวิตที่คุณชอบ</p>
+      <p>นั่นคือสิ่งที่ห้าวันบนพื้นดินทำได้ ไม่ใช่การท่องเที่ยว แต่คือห้าวันของสิ่งที่กำหนดว่านี่จะได้ผลหรือไม่จริงๆ ว่าเงินของคุณซื้ออะไรได้ ระบบสาธารณสุขเป็นอย่างไรจริงๆ และย่านหนึ่งรู้สึกอย่างไรตอนเช้าตี 7 ของวันอังคาร</p>
+      <p>บางคนทำทริปนี้แล้วกลับบ้านพร้อมความมั่นใจว่าจะย้าย บางคนกลับบ้านพร้อมรู้ว่าต้องใช้เวลาอีกหนึ่งปีจัดการเรื่องการเงิน สิ่งที่ต้องป้องกันคือการที่ใครบางคนใช้เงิน $20,000 กับการย้ายถิ่นที่ตัวเองยังไม่พร้อม</p>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+
+  <section class="numbers" id="numbers">
+    <div class="numbers-inner">
+      <div>
+        <div class="section-label">ตัวเลข</div>
+        <h2 class="section-title">ชีวิตที่ดีในกรุงเทพฯ ต้องใช้เงินเดือนละเท่าไหร่</h2>
+        <p>ตัวเลขประมาณการแบบอนุรักษ์นิยม ค่าใช้จ่ายจริงของคุณอาจต่ำกว่านี้ ตัวเลขเหล่านี้สมมติชีวิตที่สะดวกสบาย ไม่ใช่ชีวิตแบบประหยัดสุดๆ</p>
+        <p>ตัวเลขที่มักทำให้คนแปลกใจไม่ใช่ค่าเช่า แต่คือประกันสุขภาพ สำหรับผู้ที่อายุ 55 ปีขึ้นไป แผนประกันสำหรับชาวต่างชาติที่ดีอยู่ที่ <strong>฿7,500 ถึง ฿14,000 ต่อเดือน</strong> — ใกล้เคียง $200–$400 USD ค่าพบแพทย์ทั่วไปประมาณ $25 โรงพยาบาลเอกชนในกรุงเทพฯ ดีจริงๆ</p>
+        <p>การรักษาฟันไม่ได้รับความคุ้มครองจาก Medicare ที่บ้านเกิด ค่าทำความสะอาดฟันที่คลินิกเอกชนชั้นดีอยู่ที่ประมาณ $35</p>
+        <p><strong>ประเทศไทยมีราคาที่จับต้องได้ แต่ไม่ฟรี</strong> เกณฑ์รายได้สำหรับวีซ่าเกษียณอายุมีเหตุผลของมัน และใครก็ตามที่มาถึงโดยไม่มีเงินเพียงพอจะเผชิญปัญหาร้ายแรง บทสนทนานั้นเกิดขึ้นในการโทร ก่อนที่ใครจะจองตั๋วเครื่องบิน</p>
+      </div>
+      <div>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>ค่าใช้จ่ายรายเดือน (คนเดียว)</th>
+              <th>THB</th>
+              <th>USD (โดยประมาณ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ค่าเช่า (1 ห้องนอน ย่านดี)</td><td>฿18,000–35,000</td><td id="r1"></td></tr>
+            <tr><td>ค่าสาธารณูปโภค (รวมแอร์หนัก)</td><td>฿3,000–5,000</td><td id="r2"></td></tr>
+            <tr><td>อินเทอร์เน็ต + โทรศัพท์</td><td>฿1,200–1,800</td><td id="r3"></td></tr>
+            <tr><td>ของชำ</td><td>฿9,000–16,000</td><td id="r4"></td></tr>
+            <tr><td>กินข้าวนอกบ้าน (2 ครั้ง/สัปดาห์)</td><td>฿4,000–8,500</td><td id="r5"></td></tr>
+            <tr><td>ประกันสุขภาพ (55+)</td><td>฿7,500–14,000</td><td id="r6"></td></tr>
+            <tr><td>ค่าเดินทาง</td><td>฿2,500–5,000</td><td id="r7"></td></tr>
+            <tr><td>ความบันเทิง</td><td>฿4,500–8,500</td><td id="r8"></td></tr>
+            <tr><td>เบ็ดเตล็ด</td><td>฿3,000–5,500</td><td id="r9"></td></tr>
+            <tr class="cost-total"><td><strong>รวมรายเดือน</strong></td><td><strong>฿52,700–99,300</strong></td><td id="r10"></td></tr>
+          </tbody>
+        </table>
+        <p class="rate-note" id="rateNote">กำลังโหลดอัตราแลกเปลี่ยนปัจจุบัน…</p>
+        <p class="rate-note">ตัวเลขในหน่วยบาทไทย การแปลง USD อัปเดตอัตโนมัติ ค่าใช้จ่ายเป็นบาทมีเสถียรภาพมากกว่าเมื่อเทียบกับดอลลาร์ — อัตราแลกเปลี่ยนเปลี่ยนแปลงได้</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISA BANNER -->
+
+  <div class="honest-banner">
+    <div class="honest-icon">💬</div>
+    <div>
+      <h3>เกณฑ์วีซ่ามีจริง และมีเหตุผลที่มีอยู่</h3>
+      <p>วีซ่าเกษียณอายุของไทยกำหนดให้คุณอายุ <strong>50 ปีขึ้นไป</strong> และต้องมีเงินในบัญชีธนาคารไทย <strong>800,000 บาท หรือรายได้ที่รับรองได้ประมาณ 65,000 บาท/เดือน</strong> ค่าเทียบเท่า USD เปลี่ยนแปลงตามอัตราแลกเปลี่ยน — นำมาพูดในการโทรเพื่อดูตัวเลขปัจจุบัน หากอายุต่ำกว่า 50 ปี เส้นทางนี้ยังไม่เปิดให้ใช้ หากการเงินยังไม่พร้อม บทสนทนานั้นเกิดขึ้นก่อนที่ใครจะจองตั๋วเครื่องบิน</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-photo">
+        <img src="tong.jpg" alt="Tong — Thailand Retirement Service" style="width:100%; height:100%; object-fit:cover; object-position:center 25%;"/>
+      </div>
+      <div class="about-text">
+        <div class="about-tagline">คนไทย · เติบโตในสหรัฐอเมริกา · อยู่กรุงเทพฯ ตั้งแต่ปี 2558</div>
+        <div class="section-label">นี่คือใคร</div>
+        <h2 class="section-title" style="font-size:clamp(24px,2.8vw,36px);">สามสิบสองปีในสหรัฐอเมริกา กว่าหนึ่งทศวรรษในกรุงเทพฯ</h2>
+        <p>ผมเติบโตในสหรัฐอเมริกา อาศัยอยู่ที่นั่นรวม 32 ปี คุณยายย้ายกลับมาไทย แม่ตามไปด้วย และสุดท้ายผมก็ลาออกจากตำแหน่ง Senior Art Director ในแบรนด์อเมริกันที่มีชื่อเสียงแห่งหนึ่ง แล้วตามมา ผมมั่นใจเกินไปว่ามันจะง่าย มันไม่ง่ายอย่างที่คิด นั่นคือเมื่อสิบปีที่แล้ว และตอนนี้กรุงเทพฯ คือบ้านของผม</p>
+        <p>ผมเคยผ่าตัดสมองที่โรงพยาบาลเอกชนของไทย ผมพาเพื่อนสนิทที่มาเยี่ยมจากอเมริกาผ่านเหตุฉุกเฉินที่คุกคามชีวิตที่โรงพยาบาลรัฐตอนตี 2 ผมใช้เวลาสี่ปีผลิตคอนเทนต์ภายในโรงพยาบาลเอกชนของไทย บันทึกการผ่าตัดนับสิบครั้ง</p>
+        <p>ในฐานะพลเมืองไทย ธุรกิจนี้ดำเนินการที่นี่อย่างถูกกฎหมาย ชาวตะวันตกส่วนใหญ่ที่ดำเนินธุรกิจด้านการย้ายถิ่นในประเทศไทยไม่สามารถพูดเช่นนั้นได้</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL RELOCATION -->
+
+  <section class="relocation" id="relocation">
+    <div class="relocation-inner">
+      <div class="section-label">การสนับสนุนการย้ายถิ่นฐานแบบเต็มรูปแบบ</div>
+      <h2 class="section-title">เมื่อคำตอบคือใช่</h2>
+      <p>ทริปสำรวจตอบคำถามว่าประเทศไทยเป็นทางเลือกที่ถูกต้องหรือไม่ การสนับสนุนการย้ายถิ่นฐานแบบเต็มรูปแบบมีไว้สำหรับเมื่อคำตอบคือใช่ การประสานงานวีซ่า ที่พัก การจัดการสุขภาพ การธนาคาร — โลจิสติกส์ของการย้ายถิ่นจริงๆ จัดการผ่านผู้ติดต่อที่ผ่านการคัดกรองแล้ว</p>
+      <p><strong>การสนับสนุนการย้ายถิ่นฐานแบบเต็มรูปแบบเริ่มต้นที่ $3,000</strong> ค่าทริปสำรวจจะหักออกจากยอดรวม รายละเอียดพูดคุยในการโทร</p>
+      <a href="#questionnaire" class="btn-primary">เริ่มต้น</a>
+    </div>
+  </section>
+
+  <!-- FREE CALL -->
+
+  <section class="free-call" id="freecall">
+    <div class="free-call-inner">
+      <div class="free-call-text">
+        <div class="section-label">จุดเริ่มต้น</div>
+        <h2 class="section-title">ถามผมได้ทุกอย่าง สามสิบนาที ฟรี</h2>
+        <p>คุณมีคำถามที่อินเทอร์เน็ตยังไม่ได้ตอบ ว่างบประมาณของคุณพอหรือเปล่า ว่าคุณจะโอเคที่นี่ในวัยของคุณ กับสุขภาพของคุณ กับวิถีชีวิตที่คุณชอบหรือเปล่า ว่านี่เป็นความคิดที่ดีหรือแย่</p>
+        <p>นั่นคือสิ่งที่การโทรนี้มีไว้เพื่อ คุณถามอะไรก็ได้ที่ต้องการ ผมจะบอกสิ่งที่ผมรู้ ถ้าประเทศไทยไม่เหมาะสำหรับคุณ ผมจะบอกตรงๆ</p>
+      </div>
+      <div class="call-box">
+        <div class="call-free">Free</div>
+        <div class="call-free-note">30 นาที · Zoom หรืออีเมล · ไม่มีข้อผูกมัด</div>
+        <p>คนส่วนใหญ่อยากรู้ว่างบประมาณของตัวเองพอหรือเปล่า สุขภาพในวัยของตัวเองจะเป็นอย่างไร และนี่คือเวลาที่เหมาะสมหรือเปล่า นำทุกสิ่งที่อยู่ในใจมาคุยได้เลย</p>
+        <a href="#questionnaire" class="btn-primary">กรอกแบบสอบถาม</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTIONNAIRE -->
+
+  <section class="questionnaire" id="questionnaire">
+    <div class="questionnaire-inner">
+      <div class="questionnaire-intro">
+        <div class="section-label">ก่อนที่เราจะคุยกัน</div>
+        <h2 class="section-title">ห้านาที ไม่มีข้อผูกมัด</h2>
+        <p>สิ่งนี้ช่วยกำหนดว่าการโทรฟรีสมเหตุสมผลหรือไม่ และหากใช่ จะทำให้การโทรนั้นมีประโยชน์มากขึ้นสำหรับทั้งสองฝ่าย</p>
+        <p>หลังจากส่ง คุณจะได้รับการตอบกลับภายใน 24 ชั่วโมง — ไม่ว่าจะเป็นลิงก์จองการโทรหรือคำถามติดตามสั้นๆ</p>
+        <div class="q-threshold">
+          <strong>หมายเหตุเกี่ยวกับคุณสมบัติ</strong> วีซ่าเกษียณอายุของไทยกำหนดให้อายุ 50 ปีขึ้นไป พร้อมเงินในบัญชีธนาคารไทย 800,000 บาท (~$22,000 USD) หรือรายได้ที่รับรองได้ประมาณ $2,200/เดือน หากยังไม่ถึงเกณฑ์ กรอกแบบฟอร์มนี้ได้เลย — แล้วเราจะพูดคุยกันต่อ
+        </div>
+      </div>
+
+      <div>
+        <form class="q-form" id="q-form" onsubmit="handleQSubmit(event)">
+
+          <div class="q-section">
+            <div class="q-section-label">เกี่ยวกับคุณ</div>
+            <div class="q-row">
+              <div class="q-field">
+                <label for="q-first">ชื่อ</label>
+                <input type="text" id="q-first" name="first_name" placeholder="ชื่อ" required>
+              </div>
+              <div class="q-field">
+                <label for="q-last">นามสกุล</label>
+                <input type="text" id="q-last" name="last_name" placeholder="นามสกุล" required>
+              </div>
+            </div>
+            <div class="q-row">
+              <div class="q-field">
+                <label for="q-age">อายุ</label>
+                <input type="number" id="q-age" name="age" placeholder="เช่น 58" min="40" max="90" required>
+              </div>
+              <div class="q-field">
+                <label for="q-nationality">สัญชาติ</label>
+                <input type="text" id="q-nationality" name="nationality" placeholder="เช่น อเมริกัน อังกฤษ" required>
+              </div>
+            </div>
+            <div class="q-field">
+              <label for="q-email">อีเมล</label>
+              <input type="email" id="q-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="q-field">
+              <label for="q-country">ประเทศที่พักอาศัยปัจจุบัน</label>
+              <input type="text" id="q-country" name="country" placeholder="เช่น สหรัฐอเมริกา" required>
+            </div>
+            <div class="q-field">
+              <label>คุณสอบถามสำหรับตัวเองคนเดียว หรือสำหรับตัวเองและคู่ชีวิต?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="party" value="Just me" required> ตัวเองคนเดียว</label>
+                <label><input type="radio" name="party" value="Me and a partner"> ตัวเองและคู่ชีวิต</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">การเงิน</div>
+            <div class="q-field">
+              <label for="q-budget">งบประมาณรายเดือนโดยประมาณสำหรับค่าครองชีพในประเทศไทย</label>
+              <div class="q-hint">เพื่อเป็นข้อมูลส่วนตัว — ไม่ใช่การทดสอบ</div>
+              <select id="q-budget" name="budget" required>
+                <option value="" disabled selected>เลือกช่วง</option>
+                <option>ต่ำกว่า $1,500/เดือน</option>
+                <option>$1,500 – $2,500/เดือน</option>
+                <option>$2,500 – $3,500/เดือน</option>
+                <option>$3,500 – $5,000/เดือน</option>
+                <option>มากกว่า $5,000/เดือน</option>
+                <option>ยังไม่แน่ใจ</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label>แหล่งรายได้หลักหลังเกษียณ (เลือกทั้งหมดที่ใช้)</label>
+              <div class="q-check-group">
+                <label><input type="checkbox" name="income" value="Social Security"> ประกันสังคม</label>
+                <label><input type="checkbox" name="income" value="Pension"> เงินบำนาญ</label>
+                <label><input type="checkbox" name="income" value="Investment / portfolio income"> รายได้จากการลงทุน</label>
+                <label><input type="checkbox" name="income" value="Rental income"> รายได้จากการเช่า</label>
+                <label><input type="checkbox" name="income" value="Part-time or freelance work"> งานพาร์ทไทม์หรือฟรีแลนซ์</label>
+                <label><input type="checkbox" name="income" value="Not yet retired / still working"> ยังไม่เกษียณ / ยังทำงานอยู่</label>
+                <label><input type="checkbox" name="income" value="Other"> อื่นๆ</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">สุขภาพ</div>
+            <div class="q-field">
+              <label>มีโรคประจำตัวหรือยาที่ต้องทานที่จะส่งผลต่อการวางแผนย้ายถิ่นหรือไม่?</label>
+              <div class="q-hint">ไม่จำเป็นต้องบอกรายละเอียด — แค่ใช่/ไม่ใช่ ช่วยในการวางแผนวีซ่าและประกัน</div>
+              <div class="q-radio-group">
+                <label><input type="radio" name="health" value="Yes" required> ใช่ — มีโรคหรือยาที่ต้องพิจารณา</label>
+                <label><input type="radio" name="health" value="No"> ไม่มีข้อพิจารณาทางการแพทย์ที่สำคัญ</label>
+                <label><input type="radio" name="health" value="Prefer to discuss"> ต้องการพูดคุยในการโทร</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label>คุณมีประกันสุขภาพระหว่างประเทศอยู่หรือไม่?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="insurance" value="Yes" required> มี</label>
+                <label><input type="radio" name="insurance" value="No"> ไม่มี</label>
+                <label><input type="radio" name="insurance" value="Researching"> ไม่แน่ใจ / กำลังศึกษาตัวเลือก</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">ไทม์ไลน์และความตั้งใจ</div>
+            <div class="q-field">
+              <label for="q-stage">คุณอยู่ที่ไหนในกระบวนการตัดสินใจ?</label>
+              <select id="q-stage" name="decision_stage" required>
+                <option value="" disabled selected>เลือกหนึ่งตัวเลือก</option>
+                <option>ค้นคว้าเบื้องต้น — กำลังสำรวจว่าไทยเป็นไปได้จริงหรือเปล่า</option>
+                <option>พิจารณาอย่างจริงจัง — กำลังค้นคว้าเชิงลึกอยู่</option>
+                <option>ตัดสินใจแล้ว — กำลังวางแผนวิธีการและเวลา</option>
+                <option>พร้อมย้ายภายใน 12 เดือนข้างหน้า</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label for="q-timeline">คุณคิดว่าจะย้ายเมื่อไหร่?</label>
+              <select id="q-timeline" name="timeline" required>
+                <option value="" disabled selected>เลือกหนึ่งตัวเลือก</option>
+                <option>ภายใน 6 เดือน</option>
+                <option>6 – 12 เดือน</option>
+                <option>1 – 2 ปี</option>
+                <option>2 – 3 ปี</option>
+                <option>มากกว่า 3 ปี</option>
+                <option>ยังไม่มีไทม์ไลน์ที่แน่นอน</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label>คุณเคยมาอยู่ประเทศไทยก่อนหรือไม่?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="thailand_exp" value="Never been" required> ไม่เคยมา</label>
+                <label><input type="radio" name="thailand_exp" value="Visited once or twice"> มาเยี่ยมหนึ่งหรือสองครั้งในฐานะนักท่องเที่ยว</label>
+                <label><input type="radio" name="thailand_exp" value="Visited multiple times"> มาหลายครั้ง</label>
+                <label><input type="radio" name="thailand_exp" value="Extended time"> อยู่เป็นเวลานาน (หลายเดือนขึ้นไป)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">สิ่งที่สำคัญ</div>
+            <div class="q-field">
+              <label>อะไรสำคัญที่สุดในสถานที่อยู่อาศัย? เลือกได้สูงสุดสามอย่าง</label>
+              <div class="q-check-group">
+                <label><input type="checkbox" name="priorities" value="Healthcare access and quality"> การเข้าถึงและคุณภาพของการดูแลสุขภาพ</label>
+                <label><input type="checkbox" name="priorities" value="Cost of living"> ค่าครองชีพ</label>
+                <label><input type="checkbox" name="priorities" value="Climate"> ภูมิอากาศ</label>
+                <label><input type="checkbox" name="priorities" value="Social life and community"> ชีวิตทางสังคมและชุมชน</label>
+                <label><input type="checkbox" name="priorities" value="Walkability and convenience"> ความสะดวกสบายในการเดิน</label>
+                <label><input type="checkbox" name="priorities" value="Peace and quiet"> ความสงบ</label>
+                <label><input type="checkbox" name="priorities" value="Proximity to nature"> ใกล้ธรรมชาติ</label>
+                <label><input type="checkbox" name="priorities" value="English-friendly environment"> สภาพแวดล้อมที่เป็นมิตรกับภาษาอังกฤษ</label>
+                <label><input type="checkbox" name="priorities" value="Safety"> ความปลอดภัย</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label for="q-concerns">อะไรที่ทำให้คุณกังวลมากที่สุดเกี่ยวกับการเกษียณในประเทศไทย?</label>
+              <div class="q-hint">นี่คือสิ่งที่มีประโยชน์มากที่สุดที่คุณบอกผมได้ พูดตรงๆ ได้เลย</div>
+              <textarea id="q-concerns" name="concerns" placeholder="เช่น ค่ารักษาพยาบาลหากเกิดเหตุร้ายแรง การต่ออายุวีซ่า ความรู้สึกโดดเดี่ยว ไม่พูดภาษาไทย..."></textarea>
+            </div>
+          </div>
+
+          <div class="q-section">
+            <div class="q-section-label">อีกสิ่งหนึ่ง</div>
+            <div class="q-field">
+              <label for="q-referral">คุณพบ Thailand Retirement Service ได้อย่างไร?</label>
+              <select id="q-referral" name="referral">
+                <option value="" disabled selected>เลือกหนึ่งตัวเลือก</option>
+                <option>Google search</option>
+                <option>บอกปากต่อปาก / การแนะนำ</option>
+                <option>กลุ่ม Facebook หรือฟอรัม</option>
+                <option>Reddit</option>
+                <option>YouTube</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="q-submit-area">
+            <p>หลังจากส่ง คุณจะได้รับการตอบกลับภายใน 24 ชั่วโมง — ไม่ว่าจะเป็นลิงก์จองการโทรหรือคำถามติดตามสั้นๆ</p>
+            <button type="submit" class="q-submit-btn">Submit</button>
+          </div>
+
+        </form>
+
+        <div class="q-success" id="q-success">
+          <h3>ขอบคุณ</h3>
+          <p>ได้รับคำตอบของคุณแล้ว คุณจะได้รับการตอบกลับภายใน 24 ชั่วโมง</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANGKOK -->
+
+  <section class="cities" id="bangkok">
+    <div class="section-label">ที่ที่เราทำงาน</div>
+    <h2 class="section-title">กรุงเทพฯ</h2>
+    <p>กรุงเทพฯ คือจุดเริ่มต้นของคนส่วนใหญ่ และด้วยเหตุผลที่ดี มีโครงสร้างพื้นฐาน โรงพยาบาลนานาชาติ ระบบขนส่งสาธารณะ และความหลากหลายของย่านที่เหมาะกับเกือบทุกงบประมาณและไลฟ์สไตล์</p>
+    <p>ทริปสำรวจตั้งอยู่ในกรุงเทพฯ ครอบคลุมพื้นที่เพียงพอที่จะให้ภาพที่สมจริงของชีวิตประจำวันที่นี่ — ค่าใช้จ่าย ย่าน สุขภาพ การเดินทาง สำหรับคนส่วนใหญ่ที่คิดจะย้ายมาไทย กรุงเทพฯ ตอบคำถามได้</p>
+    <p>ถ้ามีเมืองอื่นในใจ นำมาพูดคุยในการโทรได้เลย</p>
+  </section>
+
+  <!-- CTA / CONTACT -->
+
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <div class="section-label">ติดต่อเรา</div>
+      <h2 class="section-title">ส่งข้อความ</h2>
+      <p>ถามอะไรก็ได้ที่ต้องการ นำงบประมาณ ไทม์ไลน์ และคำถามที่ยังไม่ได้รับคำตอบจากการค้นคว้ามาด้วย ถ้าประเทศไทยเหมาะสม ขั้นตอนต่อไปชัดเจน ถ้าไม่เหมาะ นั่นก็เป็นสิ่งที่ควรรู้เช่นกัน</p>
+      <div class="cta-buttons">
+        <a href="mailto:tong@thailandretirementservice.com" class="btn-email">ส่งอีเมลหาทอง</a>
+      </div>
+      <div class="cta-note"><a href="mailto:tong@thailandretirementservice.com" class="__cf_email__">tong@thailandretirementservice.com</a> &nbsp;·&nbsp; ตอบกลับภายใน 24 ชั่วโมง</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        Thailand Retirement Service
+        <p>ตั้งอยู่ในกรุงเทพฯ คนไทย อยู่ที่นี่มากว่าหนึ่งทศวรรษ</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h6>เมนู</h6>
+          <ul>
+            <li><a href="#trip">ทริปสำรวจ</a></li>
+            <li><a href="#why">ทำไมต้องมาด้วยตัวเอง</a></li>
+            <li><a href="#numbers">ตัวเลข</a></li>
+            <li><a href="#about">เกี่ยวกับ</a></li>
+            <li><a href="#relocation">การย้ายถิ่นฐานแบบเต็มรูปแบบ</a></li>
+            <li><a href="#freecall">โทรฟรี</a></li>
+            <li><a href="#questionnaire">เริ่มต้น</a></li>
+            <li><a href="#bangkok">กรุงเทพฯ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>ติดต่อ</h6>
+          <ul>
+            <li><a href="mailto:tong@thailandretirementservice.com">tong@thailandretirementservice.com</a></li>
+            <li><a href="#contact">ติดต่อเรา</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Thailand Retirement Service</span>
+      <span>กรุงเทพฯ ประเทศไทย</span>
+    </div>
+  </footer>
+
+  <script>
+    const rows = [
+      { id: 'r1',  low: 18000, high: 35000 },
+      { id: 'r2',  low: 3000,  high: 5000  },
+      { id: 'r3',  low: 1200,  high: 1800  },
+      { id: 'r4',  low: 9000,  high: 16000 },
+      { id: 'r5',  low: 4000,  high: 8500  },
+      { id: 'r6',  low: 7500,  high: 14000 },
+      { id: 'r7',  low: 2500,  high: 5000  },
+      { id: 'r8',  low: 4500,  high: 8500  },
+      { id: 'r9',  low: 3000,  high: 5500  },
+      { id: 'r10', low: 52700, high: 99300 },
+    ];
+
+    function applyRate(rate) {
+      rows.forEach(r => {
+        const el = document.getElementById(r.id);
+        if (!el) return;
+        const lo = Math.round(r.low / rate);
+        const hi = Math.round(r.high / rate);
+        el.textContent = '$' + lo.toLocaleString() + '–' + hi.toLocaleString();
+      });
+      const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      document.getElementById('rateNote').textContent =
+        'USD estimates based on live rate: ฿1 = $' + (1/rate).toFixed(4) + ' (as of ' + dateStr + ')';
+    }
+
+    fetch('https://api.exchangerat
+    fetch('https://api.exchangerate-api.com/v4/latest/THB')
+      .then(r => r.json())
+      .then(data => { applyRate(1 / data.rates.USD); })
+      .catch(() => { applyRate(36); });
+
+    function handleQSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('q-form');
+      const data = new FormData(form);
+      const body = {};
+      data.forEach((v, k) => { body[k] = v; });
+
+      fetch('https://formspree.io/f/xwpbqdqr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body)
+      })
+      .then(r => {
+        if (r.ok) {
+          form.innerHTML = '<p style="font-size:18px;font-weight:500;color:var(--teak);padding:40px 0;">ขอบคุณ — คุณจะได้รับการตอบกลับภายใน 24 ชั่วโมง</p>';
+        } else {
+          alert('เกิดข้อผิดพลาด กรุณาส่งอีเมลไปที่ tong@thailandretirementservice.com โดยตรง');
+        }
+      })
+      .catch(() => {
+        alert('เกิดข้อผิดพลาด กรุณาส่งอีเมลไปที่ tong@thailandretirementservice.com โดยตรง');
+      });
+    }
+  </script>
+</body>
+</html>
