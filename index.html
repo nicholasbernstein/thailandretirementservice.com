@@ -425,13 +425,13 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       <div class="hero-photo">
         <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=80" alt="Bangkok at dusk" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
       </div>
-      <div class="hero-card">
+      <a href="mailto:tong@thailandretirementservice.com" class="hero-card" style="text-decoration:none; color:inherit; cursor:pointer;">
         <div class="card-icon">✉️</div>
         <div class="card-text">
           <h4>Send a message</h4>
           <p>Response within 24 hours.</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -796,9 +796,9 @@ footer { background: var(--text); padding: 64px 56px 40px; }
       <h2 class="section-title">Send a message.</h2>
       <p>Ask whatever you want. Bring a budget, a timeline, and the questions that haven't been answered by the research already done. If Thailand makes sense, the next steps are clear. If it doesn't, that's worth knowing too.</p>
       <div class="cta-buttons">
-        <a href="mailto:tong@thailandretirementservice.com" class="btn-email">Email Tong</a>
+        <a href="/cdn-cgi/l/email-protection#a7d3c8c9c0e7d3cfc6cecbc6c9c3d5c2d3ced5c2cac2c9d3d4c2d5d1cec4c289c4c8ca" class="btn-email">Email Tong</a>
       </div>
-      <div class="cta-note"><a href="mailto:tong@thailandretirementservice.com" class="__cf_email__">tong@thailandretirementservice.com</a> &nbsp;·&nbsp; Response within 24 hours</div>
+      <div class="cta-note"><a href="/cdn-cgi/l/email-protection#88fce7e6efc8fce0e9e1e4e9e6ecfaedfce1faede5ede6fcfbedfafee1ebeda6ebe7e5" class="__cf_email__"><span class="__cf_email__" data-cfemail="c6b2a9a8a186b2aea7afaaa7a8a2b4a3b2afb4a3aba3a8b2b5a3b4b0afa5a3e8a5a9ab">[email&#160;protected]</span></a> &nbsp;·&nbsp; Response within 24 hours</div>
     </div>
   </section>
 
@@ -827,7 +827,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
         <div class="footer-col">
           <h6>Contact</h6>
           <ul>
-            <li><a href="mailto:tong@thailandretirementservice.com">tong@thailandretirementservice.com</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#d8acb7b6bf98acb0b9b1b4b9b6bcaabdacb1aabdb5bdb6acabbdaaaeb1bbbdf6bbb7b5"><span class="__cf_email__" data-cfemail="83f7ecede4c3f7ebe2eaefe2ede7f1e6f7eaf1e6eee6edf7f0e6f1f5eae0e6ade0ecee">[email&#160;protected]</span></a></li>
             <li><a href="#contact">Get in Touch</a></li>
           </ul>
         </div>
@@ -839,7 +839,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const rows = [
       { id: 'r1',  low: 18000, high: 35000 },
       { id: 'r2',  low: 3000,  high: 5000  },
@@ -884,17 +884,3 @@ footer { background: var(--text); padding: 64px 56px 40px; }
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(body)
       })
-      .then(r => {
-        if (r.ok) {
-          form.innerHTML = '<p style="font-size:18px;font-weight:500;color:var(--teak);padding:40px 0;">Thanks — you\'ll hear back within 24 hours.</p>';
-        } else {
-          alert('Something went wrong. Please email tong@thailandretirementservice.com directly.');
-        }
-      })
-      .catch(() => {
-        alert('Something went wrong. Please email tong@thailandretirementservice.com directly.');
-      });
-    }
-  </script>
-</body>
-</html>
