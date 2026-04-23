@@ -447,6 +447,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
           <h3>The Bangkok Scouting Trip</h3>
           <p>Before arrival, you fill out a short questionnaire. Budget, health situation, priorities, what's keeping you up at night about this move. The days are built around those answers. Every scout covers similar ground, but no two are exactly alike. That's why the questionnaire comes first.</p>
           <p>By the end, you'll have seen real apartments in a neighborhood that fits your budget, walked a market, priced the medications you're actually taking, and gotten a real look at what healthcare costs at a place that gives you an accurate picture. Within a week of returning home, you'll receive a written plan based on everything covered during the trip.</p>
+          <p>No commissions. No referral arrangements. Where I take you is based on what you told me in the questionnaire, not on who's paying me to bring you there.</p>
           <div class="trip-note">The $985 covers five full days, transit, and the written plan. Flights, accommodation, and meals are separate.</div>
           <a href="#questionnaire" class="btn-primary">Get Started</a>
         </div>
@@ -494,6 +495,9 @@ footer { background: var(--text); padding: 64px 56px 40px; }
         <p>The number that tends to surprise people isn't the rent. It's health insurance. For someone 55 or older, a solid expat plan runs <strong>฿7,500 to ฿14,000 a month</strong>, closer to $200 to $400 USD. A GP visit costs around $25. Private hospitals in Bangkok are genuinely good.</p>
         <p>Dental care isn't covered by Medicare at home. A cleaning at a reputable private clinic runs about $35.</p>
         <p><strong>Thailand is affordable. It is not free.</strong> The retirement visa income threshold exists for a reason, and anyone who arrives without sufficient funds runs into serious problems. That conversation happens on the call, before anyone books a flight.</p>
+        <div style="background:var(--sand2); border-left:3px solid var(--terra); border-radius:0 12px 12px 0; padding:18px 20px; margin-top:24px; font-size:15px; font-weight:300; line-height:1.75; color:var(--teak2);">
+          <strong style="color:var(--teak);">Getting around Bangkok is cheap.</strong> A Grab to Suvarnabhumi Airport from central Bangkok runs about $7–10. The same distance in most American cities costs $50.
+        </div>
       </div>
       <div>
         <table class="cost-table">
@@ -691,16 +695,6 @@ footer { background: var(--text); padding: 64px 56px 40px; }
           <div class="q-section">
             <div class="q-section-label">Timeline and intention</div>
             <div class="q-field">
-              <label for="q-stage">Where are you in the decision process?</label>
-              <select id="q-stage" name="decision_stage" required>
-                <option value="" disabled selected>Select one</option>
-                <option>Early research — exploring whether Thailand is realistic</option>
-                <option>Serious consideration — doing deeper research now</option>
-                <option>Decided — working out the how and when</option>
-                <option>Ready to move within the next 12 months</option>
-              </select>
-            </div>
-            <div class="q-field">
               <label for="q-timeline">When are you thinking about making the move?</label>
               <select id="q-timeline" name="timeline" required>
                 <option value="" disabled selected>Select one</option>
@@ -737,6 +731,33 @@ footer { background: var(--text); padding: 64px 56px 40px; }
                 <label><input type="checkbox" name="priorities" value="Proximity to nature"> Proximity to nature</label>
                 <label><input type="checkbox" name="priorities" value="English-friendly environment"> English-friendly environment</label>
                 <label><input type="checkbox" name="priorities" value="Safety"> Safety</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label for="q-neighborhood">What kind of neighborhood are you drawn to?</label>
+              <select id="q-neighborhood" name="neighborhood">
+                <option value="" disabled selected>Select one</option>
+                <option>Quiet and residential — minimal foot traffic, local feel</option>
+                <option>Walkable and urban — cafes, shops, expat community nearby</option>
+                <option>Close to hospitals and medical facilities</option>
+                <option>No strong preference</option>
+              </select>
+            </div>
+            <div class="q-field">
+              <label>Where are you currently living?</label>
+              <div class="q-radio-group">
+                <label><input type="radio" name="current_environment" value="Major city"> Major city</label>
+                <label><input type="radio" name="current_environment" value="Suburbs"> Suburbs</label>
+                <label><input type="radio" name="current_environment" value="Small town or rural"> Small town or rural</label>
+              </div>
+            </div>
+            <div class="q-field">
+              <label>Any mobility considerations I should know about when planning the trip?</label>
+              <div class="q-hint">No need for detail — just helps with pacing and logistics.</div>
+              <div class="q-radio-group">
+                <label><input type="radio" name="mobility" value="No limitations"> No limitations</label>
+                <label><input type="radio" name="mobility" value="Some limitations"> Some limitations — stairs, long walks, heat are a factor</label>
+                <label><input type="radio" name="mobility" value="Significant limitations"> Significant limitations — I'll share more on the call</label>
               </div>
             </div>
             <div class="q-field">
