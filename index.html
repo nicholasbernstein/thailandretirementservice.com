@@ -223,6 +223,31 @@ h1 em { font-style: italic; color: var(--terra); }
 .about-text p:last-child { margin-bottom: 0; }
 .about-text em { font-style: italic; }
 
+/* PULLED QUOTE */
+.pulled-quote {
+  padding: 72px 56px;
+  background: var(--sand);
+  text-align: center;
+}
+.pulled-quote-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.pulled-quote-rule {
+  width: 48px; height: 1px;
+  background: var(--terra);
+  margin: 0 auto 32px;
+}
+.pulled-quote-rule.bottom { margin: 32px auto 0; }
+.pulled-quote blockquote {
+  font-family: 'Lora', serif;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--teak);
+}
+
 /* FULL RELOCATION */
 .relocation { padding: 80px 56px; background: var(--white); }
 .relocation-inner { max-width: 680px; }
@@ -544,12 +569,22 @@ footer { background: var(--text); padding: 64px 56px 40px; }
     </div>
   </div>
 
+  <!-- PULLED QUOTE -->
+
+  <div class="pulled-quote">
+    <div class="pulled-quote-inner">
+      <div class="pulled-quote-rule"></div>
+      <blockquote>"When you hire someone to help you navigate a foreign country, it helps to know they won't disappear overnight. I'm not a digital nomad on a tourist visa. I'm a Thai national, legally operating, permanently based here."</blockquote>
+      <div class="pulled-quote-rule bottom"></div>
+    </div>
+  </div>
+
   <!-- ABOUT -->
 
   <section class="about" id="about">
     <div class="about-inner">
       <div class="about-photo">
-        <img src="tong.jpg" alt="Tong — Thailand Retirement Service" style="width:100%; height:100%; object-fit:cover; object-position:center 25%;"/>
+        <img src="tong.jpg" alt="Tong, Thailand Retirement Service" style="width:100%; height:100%; object-fit:cover; object-position:center 25%;"/>
       </div>
       <div class="about-text">
         <div class="about-tagline">Thai National · Grew up in the United States · Bangkok since 2015</div>
@@ -653,7 +688,7 @@ footer { background: var(--text); padding: 64px 56px 40px; }
             <div class="q-section-label">Finances</div>
             <div class="q-field">
               <label for="q-budget">Estimated monthly budget for living expenses in Thailand</label>
-              <div class="q-hint">For your own context — not a test.</div>
+              <div class="q-hint">For your own context. Not a test.</div>
               <select id="q-budget" name="budget" required>
                 <option value="" disabled selected>Select a range</option>
                 <option>Under $1,500/month</option>
@@ -744,8 +779,8 @@ footer { background: var(--text); padding: 64px 56px 40px; }
               <label for="q-neighborhood">What kind of neighborhood are you drawn to?</label>
               <select id="q-neighborhood" name="neighborhood">
                 <option value="" disabled selected>Select one</option>
-                <option>Quiet and residential — minimal foot traffic, local feel</option>
-                <option>Walkable and urban — cafes, shops, expat community nearby</option>
+                <option>Quiet and residential, minimal foot traffic, local feel</option>
+                <option>Walkable and urban, cafes, shops, expat community nearby</option>
                 <option>Close to hospitals and medical facilities</option>
                 <option>No strong preference</option>
               </select>
@@ -760,11 +795,11 @@ footer { background: var(--text); padding: 64px 56px 40px; }
             </div>
             <div class="q-field">
               <label>Any mobility considerations I should know about when planning the trip?</label>
-              <div class="q-hint">No need for detail — just helps with pacing and logistics.</div>
+              <div class="q-hint">No need for detail. Just helps with pacing and logistics.</div>
               <div class="q-radio-group">
                 <label><input type="radio" name="mobility" value="No limitations"> No limitations</label>
-                <label><input type="radio" name="mobility" value="Some limitations"> Some limitations — stairs, long walks, heat are a factor</label>
-                <label><input type="radio" name="mobility" value="Significant limitations"> Significant limitations — I'll share more on the call</label>
+                <label><input type="radio" name="mobility" value="Some limitations"> Some limitations: stairs, long walks, heat are a factor</label>
+                <label><input type="radio" name="mobility" value="Significant limitations"> Significant limitations. I'll share more on the call</label>
               </div>
             </div>
             <div class="q-field">
