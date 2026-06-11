@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're Already Here, Thailand Retirement Service</title>
+  <meta name="description" content="You're in Bangkok. The city people actually live in is right around the corner. One day with Tong changes what you see."/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:   #F5EFE4;
+      --sand2:  #EAE0CE;
+      --terra:  #C8714A;
+      --terra2: #E8967A;
+      --teak:   #5C3D2E;
+      --teak2:  #8B6350;
+      --teak3:  #B89880;
+      --sage:   #7A9E87;
+      --sage3:  #D4E8DC;
+      --white:  #FDFAF6;
+      --line:   rgba(92,61,46,0.12);
+      --text:   #2E1F14;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 56px;
+      background: rgba(245,239,228,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif; font-size: 18px; font-weight: 500;
+      color: var(--teak); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terra); flex-shrink: 0; }
+    .nav-cta {
+      background: var(--terra); color: var(--white);
+      font-size: 13px; font-weight: 600;
+      padding: 10px 22px; border-radius: 100px;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--teak); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 58% 42%;
+      padding-top: 82px;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 56px;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--terra); margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(38px, 4vw, 58px);
+      font-weight: 400; line-height: 1.2; color: var(--teak);
+      margin-bottom: 28px;
+    }
+    h1 em { font-style: italic; color: var(--terra); }
+    .hero-sub {
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: var(--teak2); max-width: 480px; margin-bottom: 44px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--terra); color: var(--white);
+      font-size: 15px; font-weight: 600;
+      padding: 16px 36px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(200,113,74,0.3);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--teak); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(92,61,46,0.25); }
+    .btn-ghost {
+      font-size: 15px; font-weight: 500; color: var(--teak2);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+    .btn-ghost:hover { color: var(--terra); }
+    .btn-ghost:hover::after { transform: translateX(4px); }
+
+    .hero-right { position: relative; overflow: hidden; background: var(--teak); }
+    .hero-photo { position: absolute; inset: 0; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-card {
+      position: absolute; bottom: 44px; left: 32px; right: 32px;
+      background: rgba(245,239,228,0.97); border-radius: 16px;
+      padding: 22px 26px; display: flex; gap: 16px; align-items: flex-start;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+      text-decoration: none; color: inherit;
+    }
+    .card-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: #25D366; display: flex; align-items: center;
+      justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .card-text h4 { font-family: 'Lora', serif; font-size: 15px; color: var(--teak); margin-bottom: 4px; }
+    .card-text p { font-size: 13px; color: var(--teak2); line-height: 1.5; }
+
+    /* REALITY SECTION */
+    .reality { padding: 100px 56px; background: var(--white); }
+    .reality-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--terra); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(26px, 2.8vw, 38px);
+      font-weight: 400; line-height: 1.25; color: var(--teak);
+      margin-bottom: 24px;
+    }
+
+    .reality-text p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: var(--teak2); margin-bottom: 20px;
+    }
+    .reality-text p:last-child { margin-bottom: 0; }
+    .reality-text strong { color: var(--teak); font-weight: 600; }
+
+    .contrast-list { list-style: none; margin-top: 8px; }
+    .contrast-list li {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; border-bottom: 1px solid var(--line);
+    }
+    .contrast-list li:first-child { border-top: 1px solid var(--line); }
+    .contrast-col {
+      padding: 14px 16px;
+      font-size: 14px; font-weight: 300; line-height: 1.6; color: var(--teak2);
+    }
+    .contrast-col:first-child {
+      border-right: 1px solid var(--line);
+      color: var(--teak3);
+    }
+    .contrast-col:last-child { color: var(--teak); font-weight: 400; }
+    .contrast-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; margin-bottom: 0;
+    }
+    .contrast-header span {
+      padding: 10px 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--teak3);
+      background: var(--sand);
+    }
+    .contrast-header span:first-child { border-right: 1px solid var(--line); }
+
+    /* THE DAY */
+    .the-day { padding: 100px 56px; background: var(--sand); }
+    .the-day-inner { max-width: 800px; margin: 0 auto; }
+    .the-day-inner p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: var(--teak2); margin-bottom: 20px;
+    }
+    .the-day-inner p:last-child { margin-bottom: 0; }
+    .the-day-inner strong { color: var(--teak); font-weight: 600; }
+    .the-day-inner em { font-style: italic; }
+
+    .day-stops { margin: 40px 0; display: flex; flex-direction: column; gap: 0; }
+    .day-stop {
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 24px; align-items: start;
+      padding: 28px 0; border-bottom: 1px solid var(--line);
+    }
+    .day-stop:first-child { border-top: 1px solid var(--line); }
+    .stop-time {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--terra); padding-top: 2px;
+    }
+    .stop-content h4 {
+      font-family: 'Lora', serif; font-size: 17px; font-weight: 500;
+      color: var(--teak); margin-bottom: 8px;
+    }
+    .stop-content p {
+      font-size: 14px; font-weight: 300; line-height: 1.75;
+      color: var(--teak2); margin-bottom: 0;
+    }
+
+    /* PRICING */
+    .pricing { padding: 100px 56px; background: var(--white); }
+    .pricing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .pricing-inner.single { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+
+    .price-card {
+      background: var(--sand); border-radius: 24px;
+      padding: 44px; border: 1px solid var(--sand2);
+    }
+    .price-card.featured { background: var(--teak); border-color: var(--teak); }
+    .price-amount {
+      font-family: 'Lora', serif; font-size: 56px; font-weight: 400;
+      color: var(--terra); line-height: 1; margin-bottom: 6px;
+    }
+    .price-card.featured .price-amount { color: var(--terra2); }
+    .price-note { font-size: 13px; color: var(--teak2); margin-bottom: 24px; }
+    .price-card.featured .price-note { color: var(--teak3); }
+    .price-card h3 {
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+      color: var(--teak); margin-bottom: 16px;
+    }
+    .price-card.featured h3 { color: var(--sand); }
+    .price-card p {
+      font-size: 14px; font-weight: 300; line-height: 1.8;
+      color: var(--teak2); margin-bottom: 12px;
+    }
+    .price-card.featured p { color: var(--teak3); }
+    .price-card p:last-of-type { margin-bottom: 0; }
+    .price-divider {
+      border: none; border-top: 1px solid var(--line);
+      margin: 24px 0;
+    }
+    .price-card.featured .price-divider { border-color: rgba(245,239,228,0.15); }
+    .price-card .btn-primary { margin-top: 28px; }
+    .price-card.featured .btn-primary { background: var(--terra); }
+
+    .pricing-text p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: var(--teak2); margin-bottom: 20px;
+    }
+    .pricing-text p:last-child { margin-bottom: 0; }
+    .pricing-text strong { color: var(--teak); font-weight: 600; }
+
+    /* ABOUT STRIP */
+    .about-strip { padding: 80px 56px; background: var(--sand2); }
+    .about-strip-inner {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 48px; align-items: center; max-width: 900px; margin: 0 auto;
+    }
+    .about-strip-photo {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--teak); overflow: hidden; flex-shrink: 0;
+    }
+    .about-strip-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .about-strip-tagline {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teak3); margin-bottom: 10px;
+    }
+    .about-strip-text h3 {
+      font-family: 'Lora', serif; font-size: 22px; font-weight: 400;
+      color: var(--teak); margin-bottom: 12px; line-height: 1.3;
+    }
+    .about-strip-text p {
+      font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--teak2);
+    }
+
+    /* CTA */
+    .cta { padding: 100px 56px; background: var(--teak); }
+    .cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .cta .section-label { color: var(--teak3); }
+    .cta .section-title { color: var(--sand); margin-bottom: 20px; font-size: clamp(26px, 3vw, 40px); }
+    .cta p { font-size: 17px; font-weight: 300; line-height: 1.85; color: var(--teak3); margin-bottom: 44px; }
+    .cta-buttons { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+    .btn-wa {
+      background: #25D366; color: var(--white);
+      font-size: 15px; font-weight: 600;
+      padding: 16px 36px; border-radius: 100px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-wa:hover { opacity: 0.9; transform: translateY(-2px); }
+    .cta-note { font-size: 13px; color: var(--teak3); line-height: 1.6; }
+    .cta-note a { color: var(--teak3); text-decoration: underline; }
+
+    /* FOOTER */
+    footer { background: var(--text); padding: 48px 56px 36px; }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 32px; margin-bottom: 24px;
+      border-bottom: 1px solid rgba(245,239,228,0.1);
+    }
+    .footer-brand {
+      font-family: 'Lora', serif; font-size: 18px; font-weight: 500; color: var(--sand);
+    }
+    .footer-brand p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 13px; font-weight: 300; color: var(--teak3);
+      line-height: 1.6; margin-top: 8px;
+    }
+    .footer-contact { text-align: right; }
+    .footer-contact a {
+      display: block; font-size: 13px; color: var(--teak3);
+      text-decoration: none; margin-bottom: 6px; transition: color 0.2s;
+    }
+    .footer-contact a:hover { color: var(--sand); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: var(--teak3);
+    }
+    .footer-bottom a { color: var(--teak3); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--sand); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 340px; }
+      .hero-left { padding: 60px 24px; }
+      .reality { padding: 60px 24px; }
+      .reality-inner { grid-template-columns: 1fr; gap: 48px; }
+      .the-day { padding: 60px 24px; }
+      .day-stop { grid-template-columns: 60px 1fr; gap: 16px; }
+      .pricing { padding: 60px 24px; }
+      .pricing-inner { grid-template-columns: 1fr; gap: 32px; }
+      .about-strip { padding: 60px 24px; }
+      .about-strip-inner { grid-template-columns: 1fr; gap: 28px; }
+      .about-strip-photo { width: 80px; height: 80px; }
+      .cta { padding: 60px 24px; }
+      footer { padding: 40px 24px 28px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .footer-contact { text-align: left; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><span class="nav-dot"></span>Thailand Retirement Service</a>
+    <a href="https://wa.me/66987404085" target="_blank" class="nav-cta">WhatsApp Tong</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">You're already here</div>
+      <h1>The city people actually live in is <em>right around the corner.</em></h1>
+      <p class="hero-sub">Most of what you see where you're standing was built for visitors. The Bangkok people actually retire to is a different place, and it's closer than you think.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/66987404085" target="_blank" class="btn-primary">WhatsApp Tong<span style="display:block; font-size:11px; font-weight:400; opacity:0.85; margin-top:3px; letter-spacing:0.03em;">+66 98-740-4085</span></a>
+        <a href="#the-day" class="btn-ghost">What a day looks like</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1570284613060-766c33850e00?w=900&q=80" alt="Bangkok street market, morning"/>
+      </div>
+      <a href="https://wa.me/66987404085" target="_blank" class="hero-card">
+        <div class="card-icon">💬</div>
+        <div class="card-text">
+          <h4>Message Tong directly</h4>
+          <p>WhatsApp. Fast reply. No form to fill out.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="about-strip-inner">
+      <div class="about-strip-photo">
+        <img src="tong.jpg" alt="Tong, Thailand Retirement Service"/>
+      </div>
+      <div class="about-strip-text">
+        <div class="about-strip-tagline">Thai National · Grew up in the United States · Bangkok since 2015</div>
+        <h3>I've been on both sides of this.</h3>
+        <p>I'm Thai enough to do this legally, and Western enough to know what you're thinking before you say it. I was born here and grew up in the United States, where I lived for more than three decades. I came back and had to figure Bangkok out the same way you would. That took years. One day with me compresses a lot of that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REALITY -->
+  <section class="reality">
+    <div class="reality-inner">
+      <div class="reality-text">
+        <div class="section-label">What You're Seeing</div>
+        <h2 class="section-title">Bangkok is bigger than where you've been.</h2>
+        <p>Most visitors spend their whole trip in the corridor between Sukhumvit, Silom, and the river. The food is fine, the taxis are expensive, and everything you need is available at a tourist price. It has almost nothing in common with what it's like to actually live here. Different neighborhoods, and lower prices. A different version of the city entirely.</p>
+        <p>If you've thought at any point on this trip that you might want to live here, vacation is the worst possible headspace to make that call. <strong>One day changes that.</strong></p>
+      </div>
+      <div>
+        <div class="contrast-header">
+          <span>Where you've been</span>
+          <span>Where people live</span>
+        </div>
+        <ul class="contrast-list">
+          <li>
+            <div class="contrast-col">Hotel breakfast at ฿600</div>
+            <div class="contrast-col">Supermarket run at ฿180</div>
+          </li>
+          <li>
+            <div class="contrast-col">Taxi that sees a tourist coming</div>
+            <div class="contrast-col">Grab, metered, no negotiation</div>
+          </li>
+          <li>
+            <div class="contrast-col">Pharmacy on Sukhumvit</div>
+            <div class="contrast-col">Your actual prescriptions, priced</div>
+          </li>
+          <li>
+            <div class="contrast-col">Dental work you put off at home</div>
+            <div class="contrast-col">Private clinic, $35, same quality</div>
+          </li>
+          <li>
+            <div class="contrast-col">Restaurants with English menus</div>
+            <div class="contrast-col">Morning market, ฿50 breakfast</div>
+          </li>
+          <li>
+            <div class="contrast-col">A 1BR hotel for ฿3,500/night</div>
+            <div class="contrast-col">A 1BR apartment for ฿18,000/month</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DAY -->
+  <section class="the-day" id="the-day">
+    <div class="the-day-inner">
+      <div class="section-label">One Day</div>
+      <h2 class="section-title">What we cover.</h2>
+      <p>You're already here. The flight is done. All that costs you is a day. Here's how it goes.</p>
+
+      <div class="day-stops">
+        <div class="day-stop">
+          <div class="stop-time">Morning</div>
+          <div class="stop-content">
+            <h4>A residential neighborhood</h4>
+            <p>Not Sukhumvit. We'll figure out the right neighborhood together before we go. We walk it. Morning market, BTS access, what a haircut costs, where you'd get coffee. The kind of place you'd actually rent an apartment.</p>
+          </div>
+        </div>
+        <div class="day-stop">
+          <div class="stop-time">Midday</div>
+          <div class="stop-content">
+            <h4>A real supermarket</h4>
+            <p>Big C, Lotus, Tops, maybe Foodland. The kind of places Thai people and expats actually shop when they live here. Aisle by aisle. What's available, what's familiar, what's not, and why cheese is expensive. What a week of groceries costs.</p>
+          </div>
+        </div>
+        <div class="day-stop">
+          <div class="stop-time">Afternoon</div>
+          <div class="stop-content">
+            <h4>A pharmacy and a clinic</h4>
+            <p>A pharmacy so you can see what your medications cost here. Then a dental clinic for a cleaning or a health check at a private hospital. Not a medical tourism showpiece. The kind of place you could actually afford to use every time you needed it.</p>
+          </div>
+        </div>
+        <div class="day-stop">
+          <div class="stop-time">End of day</div>
+          <div class="stop-content">
+            <h4>The honest conversation</h4>
+            <p>By the end of the day I'll know your situation well enough to tell you what I actually think. Whether the numbers work, which visa pathway fits, what the move would really look like from where you are. A few days later I send you a short written summary of what we covered, so you're not relying on memory. If you want the full comprehensive plan, that's what the longer trips are for.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>The point isn't to show you everything. It's to replace the impressions you got this week with something you can actually use. You go home knowing whether Bangkok is worth planning around, not just worth visiting.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner single">
+
+      <div class="price-card featured">
+        <div class="price-amount">$219</div>
+        <div class="price-note">One full day · Bangkok · You cover all costs on the day</div>
+        <h3>The One-Day Scout</h3>
+        <p>One day, on the ground, with someone who lives here. A little structure, a lot of flexibility. We figure out what matters to you before we go.</p>
+        <hr class="price-divider"/>
+        <p>You cover your own costs on the day. Whatever you do, whatever you skip, whatever you spend is entirely up to you. My fee is for my time.</p>
+        <a href="https://wa.me/66987404085" target="_blank" class="btn-primary">WhatsApp Tong</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <div class="section-label">You're already here</div>
+      <h2 class="section-title">Message me before you leave.</h2>
+      <p>Tell me how many days you have left and what you're trying to figure out. If the timing lines up while you're here, we set a day. If not, we talk about what comes next.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/66987404085" target="_blank" class="btn-wa">💬 WhatsApp Tong</a>
+      </div>
+      <div class="cta-note">
+        <a href="https://wa.me/66987404085" target="_blank">+66 98-740-4085</a>&nbsp;·&nbsp;
+        <a href="mailto:tong@thailandretirementservice.com">tong@thailandretirementservice.com</a>&nbsp;·&nbsp;Fast reply
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        Thailand Retirement Service
+        <p>Bangkok-based. Thai national. Over a decade of living it.</p>
+      </div>
+      <div class="footer-contact">
+        <a href="https://wa.me/66987404085" target="_blank">WhatsApp: +66 98-740-4085</a>
+        <a href="mailto:tong@thailandretirementservice.com">tong@thailandretirementservice.com</a>
+        <a href="index.html">Main site</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Thailand Retirement Service</span>
+      <span>Bangkok, Thailand</span>
+    </div>
+  </footer>
+
+</body>
+</html>
